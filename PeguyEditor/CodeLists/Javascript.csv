@@ -1,0 +1,93 @@
+label:keywords:code
+For loop:loop, for, block:"for (var i = 0; i < n; i++)
+{
+	// Do something
+}"
+Double for loop:loop, for, block:"for (var i = 0; i < n; i++)
+{
+	for (var j = 0; j < n; j++)
+	{
+		// Do something
+	}
+}"
+While loop:loop, while, block:"var continueLoop = true;
+
+while (continueLoop)
+{
+	// Do something
+}"
+If block:if, block:"var conditionOk = true;
+
+if (conditionOk === true)
+{
+	// Do something
+}"
+Create function without parameters:function:"var myFunction = function()
+{
+	// Do something
+}"
+Create function with parameters:function:"var myFunction = function($param)
+{
+	// Do something
+}"
+Create regex:regex:"var myRegex = new RegExp(""[a-z]"");
+var matchMyRegex = inputStr.match(myRegex);"
+Get scroll position:events, scroll:"var scrollX = element.scrollLeft;
+var scrollY = element.scrollTop;"
+Get scroll size:events, scroll:"var scrollWidth = element.scrollWidth;
+var scrollHeight = element.scrollHeight;"
+Force scroll position:events, scroll:"if (element.scrollTo !== undefined && element.scrollTo !== null)
+	element.scrollTo(scrollX, scrollY);
+else
+{
+	element.scrollLeft = scrollX;
+	element.scrollTop = scrollY;
+}"
+To clipboard:clipboard:"if (!navigator.clipboard)
+{
+	var textArea = document.createElement(""textarea"");
+	textArea.value = ""Hello world !"";
+	
+	textArea.style.top = ""-1000000000px"";
+	textArea.style.left = ""-1000000000px"";
+	textArea.style.width = ""100px"";
+	textArea.style.height = ""100px"";
+	textArea.style.position = ""absolute"";
+	
+	document.body.appendChild(textArea);
+	textArea.focus();
+	textArea.select();
+	
+	try
+	{
+		var successful = document.execCommand(""copy"");
+		
+		if (successful)
+		{
+			// Something to do...
+		} 
+		else
+		{
+			// Something to do...
+		} 
+	}
+	catch ($error) 
+	{
+		// Something to do...
+	} 
+	
+	document.body.removeChild(textArea);
+}
+else
+{
+	navigator.clipboard.writeText(""Hello world !"").then(function()
+	{
+		// Something to do...
+	}, 
+	function($error) 
+	{
+		// Something to do...
+	});
+}"
+Create timer:timer, animation:var timer = setInterval(function() { /* Do something */ }, 20);
+Stop timer:timer, animation:clearTimeout(timer);

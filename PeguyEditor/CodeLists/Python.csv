@@ -1,0 +1,24 @@
+label:keywords:code
+For loop:loop, for, block:"for i in range(n):
+	# Do something
+	pass"
+Double for loop:loop, for, block:"for i in range(n):
+	for j in range(n):
+		# Do something
+		pass"
+While loop:loop, while, block:"continueLoop = True
+
+while continueLoop:
+	# Do something
+	pass"
+If block:if, block:"conditionOk = True
+
+if conditionOk == true:
+	# Do something
+	pass"
+Create function without parameters:function:"def myFunction():
+	# Do something
+	pass"
+Create function with parameters:function:"def myFunction(param):
+	# Do something
+	pass"
