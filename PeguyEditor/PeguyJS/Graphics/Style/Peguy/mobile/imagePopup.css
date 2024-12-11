@@ -1,0 +1,41 @@
+.imagePopup
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	background-color: rgba(0, 0, 0, 0.9);
+	z-index: 100000000;
+	-webkit-backdrop-filter: blur(1px);
+	backdrop-filter: blur(1px);
+}
+
+.imagePopup .img
+{
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	top: 10px;
+	bottom: 10px;
+	
+	padding: 0px;
+	border-radius: 5px;
+	border: solid 2px rgb(70, 70, 70);
+	background-color: rgb(40, 40, 40);
+	box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.9);
+	
+	overflow: auto;
+}
+
+.imagePopup .close
+{
+	padding: 6px;
+	padding-left: 12px;
+	padding-bottom: 12px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	cursor: pointer;
+	z-index: 10;
+}

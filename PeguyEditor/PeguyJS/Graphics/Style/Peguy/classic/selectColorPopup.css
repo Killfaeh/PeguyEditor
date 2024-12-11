@@ -1,0 +1,37 @@
+.select-color-popup td { vertical-align: top; }
+
+.select-color-popup .inputs-block td
+{
+	padding: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	text-align: left;
+}
+
+.select-color-popup .inputs-block .color-preview
+{
+	min-width: 75px;
+	min-height: 35px;
+	border: 1px solid rgb(0, 0, 0);
+}
+
+.select-color-popup .inputs-block .hex-cell { padding-top: 20px; }
+
+.select-color-popup .inputs-block label
+{
+	display: inline-block;
+	width: 20px;
+	margin-left: 10px;
+}
+
+.select-color-popup .inputs-block .rgb-cell label { margin-left: 0px; }
+.select-color-popup .inputs-block input[type="text"] { width: 50px; }
+
+.select-color-popup .inputs-block .input-hex
+{
+	width: 60px !important;
+	text-align: center;
+}
+
+.select-color-popup .inputs-block .selector-block { padding-top: 20px; }
+.select-color-popup .inputs-block .selector-block input { width: 166px; }

@@ -1,0 +1,135 @@
+.dropFilesZone
+{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+
+.dropFilesZone .filesList
+{
+    position: absolute;
+    left: 20px;
+    right: 20px;
+}
+
+.dropFilesZone .background, 
+.dropFilesZone ul
+{
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    top: 15px;
+    bottom: 15px;
+}
+
+.dropFilesZone .background
+{
+    border: dashed 1px rgb(150, 150, 150);
+    background-color: rgb(80, 80, 80);
+    white-space: nowrap;
+    text-align: center;
+}
+
+.dropFilesZone .background *
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.dropFilesZone ul
+{
+    /*display: inline-block;*/
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+}
+
+.dropFilesZone ul li
+{
+    display: inline-block;
+    /*width: 166px;*/
+    height: 166px;
+    text-align: center;
+    position: relative;
+    margin: 3px;
+    
+}
+
+.dropFilesZone ul li *
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.dropFilesZone ul li img
+{
+    max-height: 150px;
+    border: solid 1px rgb(255, 255, 255);
+    border-radius: 3px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    margin: 4px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.dropFilesZone ul li img:hover
+{
+    max-height: 152px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.dropFilesZone ul li .display
+{
+    position: absolute;
+    left: 8px;
+    top: 3px;
+    display: none;
+    cursor: pointer;
+}
+
+.dropFilesZone ul li .display svg
+{
+    margin-left: 3px;
+    margin-top: 8px;
+}
+
+.dropFilesZone ul li .delete
+{
+    position: absolute;
+    right: 8px;
+    top: 3px;
+    display: none;
+    cursor: pointer;
+}
+
+.dropFilesZone ul li .delete svg
+{
+    margin-right: 3px;
+    margin-top: 8px;
+}
+
+.dropFilesZone ul .selected
+{
+    /*border: dotted 1px rgb(0, 0, 0);*/
+    background-color: rgba(58, 195, 255, 0.3);
+    border: 1px solid rgb(58, 195, 255);
+    height: 164px;
+}
+
+.dropFilesZone ul .selected img
+{
+    background-color: rgb(255, 255, 255);
+    margin: 3px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.dropFilesZone ul .selected img:hover
+{
+    margin-left: 5px;
+    margin-right: 5px;
+}

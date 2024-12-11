@@ -1,0 +1,199 @@
+.nodesPanel
+{
+	background-color: rgb(40, 40, 40);
+}
+
+.nodesPanel .nodeItem
+{
+	margin: 0px;
+	background-color: rgba(255, 255, 255, 0.0);
+}
+
+.nodesPanel .nodeItem .nodePanel
+{
+	margin: 0px;
+	margin-left: 10px;
+	margin-right: 10px;
+	width: calc(100% - 20px);
+	border-radius: 5px;
+	border: solid 2px rgb(120, 120, 120);
+	background-color: rgb(60, 60, 60);
+	box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.9);
+	overflow: visible;
+}
+
+.nodesPanel .selected .nodePanel { border: solid 2px rgb(200, 200, 200); }
+
+.nodesPanel .nodeItem .nodePanel .nodeLabel
+{
+	
+	padding: 5px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	background-color: rgb(58, 195, 255);
+	color: rgb(0, 0, 0);
+}
+
+.nodesPanel .selected .nodePanel .nodeLabel
+{
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+.nodesPanel .nodeItem .lists
+{
+	white-space: nowrap;
+	text-align: center;
+	padding-top: 38px;
+	padding-bottom: 10px;
+}
+
+.nodesPanel .nodeItem .lists .nodeInputs,
+.nodesPanel .nodeItem .lists .nodeOutputs
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.nodesPanel .nodeItem .lists .nodeInputs
+{
+	margin: 0px;
+	margin: auto;
+	padding: 0px;
+	text-align: center;
+	width: calc(100% - 13px);
+}
+
+.nodesPanel .groupInputNode .lists .nodeInputs { display: none; }
+
+.nodesPanel .nodeItem .lists .nodeInputs .nodeInput
+{
+	list-style-type: none;
+	margin: 0px;
+	padding: 3px;
+	text-align: left;
+}
+
+.nodesPanel .nodeItem .lists .nodeInputs .nodeInput .connector
+{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	border: 1px solid rgb(0, 0, 0);
+	background-color: rgb(200, 200, 200);
+	cursor: pointer;
+	margin-left: 2px;
+}
+
+.nodesPanel .nodeItem .lists .nodeInputs .nodeInput .nodeInputLabel
+{
+    display: inline-block;
+    vertical-align: middle;
+    max-width: calc(100% - 36px);
+    padding: 0px;
+    padding-left: 10px;
+    display: none;
+}
+
+.nodesPanel .groupOutputNode .lists .nodeInputs .nodeInput .nodeInputLabel { display: inline-block; }
+
+.nodesPanel .nodeItem .lists .nodeInputs .nodeInput .nodeInputInput
+{
+	margin-left: 4px;
+	max-width: calc(100% - 48px);
+}
+
+.nodesPanel .groupOutputNode .lists .nodeInputs .nodeInput .nodeInputInput { display: none; }
+
+.nodesPanel .nodeItem .lists .nodeOutputs
+{
+	margin: 0px;
+	padding: 0px;
+	width: 33px;
+	overflow: visible;
+}
+
+.nodesPanel .groupInputNode .lists .nodeOutputs { width: 100%; }
+
+.nodesPanel .nodeItem .lists .nodeOutputs .nodeOutput
+{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	height: 33px;
+	overflow: visible;
+	text-align: left;
+}
+
+.nodesPanel .nodeItem .lists .nodeOutputs .nodeOutput .nodeOutputLabel
+{
+    display: inline-block;
+    vertical-align: middle;
+    display: none;
+}
+
+.nodesPanel .groupInputNode .lists .nodeOutputs .nodeOutput .nodeOutputLabel
+{
+    display: inline-block;
+    margin: 0px;
+    margin: auto;
+    padding: 0px;
+    padding-right: 10px;
+    text-align: right;
+    width: calc(100% - 23px);
+}
+
+.nodesPanel .nodeItem .lists .nodeOutputs .nodeOutput .connector
+{
+	display: inline-block;
+	vertical-align: middle;
+	
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	border: 1px solid rgb(0, 0, 0);
+	background-color: rgb(200, 200, 200);
+	cursor: pointer;
+}
+
+.nodesPanel .gridLine
+{
+	fill: none;
+	stroke: rgb(120, 120, 120);
+	stroke-width: 2px;
+	stroke-dasharray: 4,5,8,5;
+}
+
+.nodesPanel .nodesLink .background
+{
+	fill: none;
+	stroke: rgb(128, 128, 128);
+	stroke-width: 5px;
+}
+
+.nodesPanel .nodesLink .foreground
+{
+	fill: none;
+	stroke: rgb(230, 230, 230);
+	stroke-width: 3px;
+}
+
+.nodesPanel .groups > g
+{
+    visibility: hidden;
+}
+
+.nodesPanel .selectRect
+{
+	fill: none;
+	stroke: rgb(128, 128, 128);
+	stroke-width: 2px;
+	stroke-dasharray: 8,4;
+}
+
+.nodesPanel .icon
+{
+	cursor: pointer;
+	display: none;
+}

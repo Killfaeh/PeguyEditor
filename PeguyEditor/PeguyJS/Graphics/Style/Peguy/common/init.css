@@ -1,0 +1,106 @@
+body
+{
+	background-color:	rgb(40, 40, 40);
+	margin:				0px;
+	padding:			0px;
+	border:				none;
+	color:				rgb(255, 255, 255);
+	font-size:			1.0em;
+	font-weight:		normal;
+	font-style:			normal;
+	font-family:		Arial;
+	
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	
+	overflow: hidden;
+}
+
+input[type="submit"], input[type="button"], button { cursor: pointer; }
+
+input[type="text"], input[type="password"], input[type="time"], input[type="email"], input[type="tel"], input[type="number"]
+{
+	border-radius: 5px;
+	border: 1px rgb(140, 140, 140) solid;
+	height: 15px;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	/*font-size: 0.9rem;*/
+	background-color: rgb(120, 120, 120);
+	color: rgb(255, 255, 255);
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="time"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="number"]:focus
+{
+	border: 1px rgb(180, 180, 180) solid;
+}
+
+input[type="button"]
+{
+	height: 30px;
+	min-width: 100px;
+	margin: 5px;
+	-webkit-appearance: none;
+	font-size: 0.9rem;
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+	background-color: rgb(242, 98, 33);
+	background-color: rgb(251, 190, 0);
+	background-color: rgb(249, 29, 14);
+	background-color: rgb(58, 195, 255);
+	/*background-color: rgb(0, 223, 17);*/
+	/*background-color: rgb(187, 61, 255);*/
+	background-image: none;
+	border: solid rgb(242, 98, 33) 2px;
+	border: solid rgb(251, 190, 0) 2px;
+	border: solid rgb(249, 29, 14) 2px;
+	border: solid rgb(58, 195, 255) 2px;
+	/*border: solid rgb(0, 223, 17) 2px;*/
+	/*border: solid rgb(187, 61, 255) 2px;*/
+	border-radius: 5px;
+}
+
+input[type="button"][disabled="true"]
+{
+	background-color: rgb(128, 128, 128);
+	border: solid rgb(128, 128, 128) 2px;
+}
+
+textarea
+{
+	border-radius: 5px;
+	border: 1px rgb(140, 140, 140) solid;
+	background-color: rgb(120, 120, 120);
+	color: rgb(255, 255, 255);
+	font-size: 1.0em;
+}
+
+textarea:focus
+{
+	border: 1px rgb(180, 180, 180) solid;
+}
+
+#screen
+{
+	z-index: 0;
+	/*background-color: rgb(220, 220, 220);*/
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	
+	overflow: hidden;
+}
+
+.wall
+{
+	display: inline-block;
+	width: 0px;
+	height: 100%;
+	vertical-align: middle;
+}

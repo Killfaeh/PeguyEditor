@@ -1,0 +1,72 @@
+.select
+{
+	position: relative;
+	display: inline-block;
+}
+
+.select .icon
+{
+	position: absolute;
+	right: 7px;
+	top: 0px;
+	bottom: 0px;
+}
+
+.select .icon *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.select .panel, .selectPanel
+{
+	display: none;
+	position: absolute;
+	border-radius: 5px;
+	border: solid 2px rgb(120, 120, 120);
+	background-color: rgb(60, 60, 60);
+	box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.9);
+	padding: 0px;
+	z-index: 1000000000;
+}
+
+.select .panel ul, 
+.selectPanel ul 
+{
+	padding: 0px;
+}
+
+.select .panel li,
+.selectPanel li
+{
+	list-style-type: none; 
+	margin: 0px;
+	padding: 3px;
+	padding-left: 10px;
+	padding-right: 15px;
+	text-align: left;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.select .panel .selected,
+.selectPanel .selected
+{
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.select .panel li *,
+.selectPanel li *
+{
+	vertical-align: middle;
+}
+
+.select .panel li .color-icon,
+.selectPanel li .color-icon
+{
+	display: inline-block;
+	width: 20px;
+	height: 15px;
+	border: 1px solid rgb(255, 255, 255);
+	margin-right: 7px;
+}

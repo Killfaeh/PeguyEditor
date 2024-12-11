@@ -1,0 +1,73 @@
+.calendar { position: relative; }
+.calendar p, .calendarPanel p { margin: 0px;}
+
+.calendar .selectedDate
+{
+	text-align: center;
+	font-weight: bold;
+}
+
+.calendarPanel
+{
+	display: none;
+	position: absolute;
+	border: solid 1px rgb(120, 120, 120);
+	background-color: rgb(60, 60, 60);
+	box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.9);
+	padding: 5px;
+	font-size: 0.8em;
+	z-index: 1000000000;
+}
+
+.calendarPanel .navigation { font-weight: bold; }
+
+.calendarPanel .navigation .previousMonth,
+.calendarPanel .navigation .nextMonth
+{
+	color: rgb(251, 190, 0);
+	font-size: 1.2em;
+	cursor: pointer;
+	position: absolute;
+	top: 5px;
+}
+
+.calendarPanel .navigation .previousMonth { left: 5px; }
+.calendarPanel .navigation .nextMonth { right: 5px; }
+
+.calendarPanel th,
+.calendarPanel td
+{
+	padding: 4px;
+	font-size: 0.9em;
+	border: solid 1px rgba(0, 0, 0, 0);
+}
+
+.calendarPanel th
+{
+	font-weight: normal;
+}
+
+.calendarPanel td:hover
+{
+	background-color: rgb(5, 5, 5);
+	border: solid 1px rgb(20, 20, 20);
+}
+
+.calendarPanel .weekend { color: rgb(180, 180, 180); }
+.calendarPanel .otherMonth { color: rgb(140, 140, 140); }
+
+.calendarPanel table .today,
+.calendarPanel .selected
+{ 
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+	border-radius: 20px;
+	padding: 3px;
+	display: inline-block;
+}
+
+.calendarPanel table .today { background-color: rgb(58, 195, 255); }
+.calendarPanel .selected { background-color: rgb(155, 155, 155); }
+
+.calendarPanel td,
+.calendarPanel .today { cursor: pointer; }

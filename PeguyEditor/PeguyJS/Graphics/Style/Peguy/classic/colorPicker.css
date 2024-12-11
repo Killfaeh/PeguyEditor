@@ -1,0 +1,26 @@
+.color-picker 
+{
+	white-space: nowrap;
+}
+
+.color-picker .value-saturation, .color-picker .hue
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.color-picker .value-saturation
+{
+	width: 268px;
+	height: 268px;
+	margin-right: 15px;
+}
+
+.color-picker .hue
+{
+	width: 36px;
+	height: 268px;
+	margin-right: 10px;
+}
+
+.color-picker .black-gradient-rect, .color-picker .hue-gradient-rect { cursor: pointer; }

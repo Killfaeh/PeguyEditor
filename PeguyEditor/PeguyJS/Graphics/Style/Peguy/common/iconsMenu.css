@@ -1,0 +1,14 @@
+.iconsMenu
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+.iconsMenu .iconsMenuItem
+{
+    list-style-type: none;
+    margin: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}

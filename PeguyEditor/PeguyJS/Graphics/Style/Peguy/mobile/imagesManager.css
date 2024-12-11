@@ -1,0 +1,26 @@
+.images-manager-popup .images-list li
+{
+	display: inline-block;
+	width: 208px;
+	height: 208px;
+}
+
+.images-manager-popup .images-list li img
+{
+	max-width: 200px;
+	width: 200px;
+	border: solid 1px rgb(255, 255, 255);
+	border-radius: 3px;
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+	margin: 3px;
+	position: relative;
+	left: 1px;
+}
+
+.images-manager-popup .images-list li img:hover
+{
+	max-width: 204px;
+	width: 204px;
+	left: 0px;
+}

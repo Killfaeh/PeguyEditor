@@ -1,0 +1,151 @@
+.images-manager-popup .popupContent
+{
+	position: absolute;
+	left: 100px;
+	right: 100px;
+	top: 100px;
+	bottom: 100px;
+}
+
+.images-manager-popup .popupContent h2
+{
+	position: absolute;
+	left: 30px;
+	right: 30px;
+	top: 30px;
+}
+
+.images-manager-popup .images-list-block
+{
+	position: absolute;
+	left: 30px;
+	right: 30px;
+	top: 75px;
+	bottom: 80px;
+	text-align: center;
+	border: solid 1px rgb(128, 128, 128);
+	border-radius: 5px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.2);
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.images-manager-popup .images-list
+{
+	display: inline-block;
+	margin: 8px;
+	padding: 0px;
+}
+
+.images-manager-popup .images-list li
+{
+	display: inline-block;
+	width: 166px;
+	height: 166px;
+	text-align: center;
+	position: relative;
+}
+
+.images-manager-popup .images-list li *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.images-manager-popup .images-list li img
+{
+	max-width: 150px;
+	max-height: 150px;
+	border: solid 1px rgb(0, 0, 0);
+	border-radius: 3px;
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+	margin: 3px;
+}
+
+.images-manager-popup .images-list li img:hover
+{
+	max-width: 154px;
+	max-height: 154px;
+	margin: 2px;
+}
+
+.images-manager-popup .images-list li .magnifying-glass
+{
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	display: none;
+	cursor: pointer;
+}
+
+.images-manager-popup .images-list li .magnifying-glass svg
+{
+	margin-left: 3px;
+	margin-top: 8px;
+}
+
+.images-manager-popup .images-list .selected
+{
+	border: dotted 1px rgb(0, 0, 0);
+	width: 164px;
+	height: 164px;
+}
+
+.images-manager-popup .popupContent .manageButtons
+{
+	position: absolute;
+	/*left: 30px;*/
+	right: 30px;
+	bottom: 30px;
+	text-align: right;
+	white-space: nowrap;
+	z-index: 100;
+}
+
+.images-manager-popup .popupContent .manageButtons *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.images-manager-popup .popupContent .manageButtons svg { cursor: pointer; }
+
+.images-manager-popup .popupContent .manageButtons .inputFile
+{
+	display: inline-block;
+	margin: 0px;
+	margin-right: 3px;
+	background-color: rgba(255, 255, 255, 0.0);
+	border: none;
+	height: unset;
+	min-width: unset;
+	min-height: 30px;
+}
+
+.images-manager-popup .popupContent .manageButtons .input { min-height: 30px; }
+
+.images-manager-popup .popupContent .manageButtons .inputFile form
+{
+	max-width: 30px;
+	min-height: 30px;
+	overflow: hidden;
+}
+
+.images-manager-popup .popupContent .manageButtons .inputFile .mask
+{
+	background-color: rgb(255, 255, 255);
+	min-height: 30px;
+	padding: 0px;
+}
+
+.images-manager-popup .popupContent .manageButtons .inputFile svg { border-radius: 50%; }
+
+.images-manager-popup .popupContent .confirmButtons
+{
+	position: absolute;
+	left: 30px;
+	right: 30px;
+	bottom: 15px;
+}

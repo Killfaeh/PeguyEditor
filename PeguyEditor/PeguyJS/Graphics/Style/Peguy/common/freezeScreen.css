@@ -1,0 +1,41 @@
+/*.freezeScreen, .invisibleFreezeScreen*/
+.freezeScreen
+{
+	position: absolute;
+}
+
+.freezeScreen
+{
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	z-index: 100000000;
+	background-color: rgba(0, 0, 0, 0.8);
+	-webkit-backdrop-filter: blur(1px);
+	backdrop-filter: blur(1px);
+	text-align: center;
+	white-space: nowrap;
+}
+
+/*
+.invisibleFreezeScreen
+{
+	left: -1000000px;
+	right: -1000000px;
+	top: -1000000px;
+	bottom: -1000000px;
+}
+*/
+
+.freezeScreenContent
+{
+	position: relative;
+	display: inline-block;
+	padding: 0px;
+	background-color: none;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.freezeScreen .freezeScreenContent .wall { height: 0px; }

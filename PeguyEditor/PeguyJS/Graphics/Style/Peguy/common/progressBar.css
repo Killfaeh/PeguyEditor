@@ -1,0 +1,21 @@
+.progressBar
+{
+	position: relative;
+	min-height: 25px;
+	border: solid 2px rgb(120, 120, 120);
+	margin: 0px;
+	padding: 0px;
+	background-color: rgb(60, 60, 60);
+}
+
+.progressBar .progressBarBar
+{
+	position: absolute;
+	left: 2px;
+	top: 2px;
+	bottom: 2px;
+	width: 0px;
+	margin: 0px;
+	padding: 0px;
+	background-color: rgb(58, 195, 255);
+}

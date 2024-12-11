@@ -1,0 +1,35 @@
+.color-palette table { margin: auto; }
+
+.color-palette table td
+{
+	width: 74px;
+	height: 54px;
+	overflow: hidden;
+}
+
+.color-palette table .selected
+{
+	border: dotted 1px rgb(255, 255, 255);
+	width: 72px;
+	height: 52px;
+}
+
+.color-palette .color-preview
+{
+	width: 60px;
+	height: 40px;
+	border: solid 1px rgb(255, 255, 255);
+	border-radius: 3px;
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+	cursor: pointer;
+	margin: 3px;
+	position: relative;
+	left: 1px;
+}
+
+.color-palette .color-preview:hover
+{
+	width: 64px;
+	height: 44px;
+	left: 0px;
+}

@@ -1,0 +1,27 @@
+.toolsBar
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+.toolsBar .iconsMenuItem
+{
+    list-style-type: none;
+    margin: 5px;
+	padding: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+	border-radius: 5px;
+}
+
+.toolsBar .iconsMenuItem:hover
+{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.toolsBar .selected,
+.toolsBar .selected:hover
+{
+	background-color: rgba(255, 255, 255, 0.4);
+}

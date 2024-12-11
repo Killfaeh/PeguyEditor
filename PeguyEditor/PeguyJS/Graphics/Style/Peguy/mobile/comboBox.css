@@ -1,0 +1,41 @@
+.select
+{
+	position: relative;
+	display: inline-block;
+	min-width: 190px;
+}
+
+.select .displayedOption
+{
+	text-align: center;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: -5px;
+	bottom: 0px;
+	background-color: rgb(60, 60, 60);
+}
+
+.select .displayedOption input
+{
+	text-align: left;
+	font-weight: bold;
+	font-size: 1.2em;
+	min-width: 170px;
+}
+
+.select .icon
+{
+	position: absolute;
+	right: 8px;
+	top: 8px;
+}
+
+.select .comboBoxLabel
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: -10px;
+	bottom: -10px;
+}

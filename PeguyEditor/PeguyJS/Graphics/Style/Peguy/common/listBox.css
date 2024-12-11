@@ -1,0 +1,99 @@
+.listBox
+{
+	position: relative;
+	margin: 0px;
+	padding: 0px;
+}
+
+.listBox .listItem
+{
+	list-style-type: none;
+	text-align: left;
+	border-bottom: solid 1px rgb(120, 120, 120);
+	padding: 5px;
+	padding-left: 10px;
+}
+
+/*
+.listBox .listItem:hover
+{
+	background-color: rgb(225, 225, 225);
+}
+*/
+
+/*
+.listBox .listItem .list-label
+{
+	white-space: nowrap;
+}
+
+.listBox .listItem .list-label *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+*/
+
+/* *********** */
+/* Drag & Drop */
+/* *********** */
+
+.listBox .virtual-list
+{
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	/*left: -5px;*/
+	width: 100%;
+	height: 0px;
+	max-height: 0px;
+	overflow: visible;
+	color: rgba(250, 250, 250, 0.0);
+	z-index: 15;
+}
+
+.listBox .virtual-list .virtual-list-border
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: -6px;
+	/*bottom: 0px;*/
+	max-height: 10px;
+	height: 10px;
+	width: calc(100% - 2px);
+	background-color: rgba(128, 128, 128, 0.5);
+	border: 1px solid rgb(200, 200, 200);
+}
+
+.ghost-list
+{
+	display: block;
+	list-style-type: none;
+	text-align: left;
+	
+	position: absolute;
+	opacity: 0.9;
+	z-index: 100000000;
+	
+	margin: 0px;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 20px;
+	
+	border: solid 1px rgb(120, 120, 120);
+	
+	background-color: rgb(60, 60, 60);
+	color: rgb(150, 150, 150);
+	
+	/*white-space: nowrap;*/
+}
+
+/*
+.ghost-list *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+*/

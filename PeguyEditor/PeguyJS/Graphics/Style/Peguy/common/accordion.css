@@ -1,0 +1,40 @@
+.accordion
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.accordion .accordionItem
+{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.accordion .accordionItem .accordionHeader
+{
+	background-color: rgb(100, 100, 100);
+	border-radius: 5px;
+	margin: 3px;
+	padding: 7px;
+	text-align: left;
+}
+
+.accordion .accordionItem .accordionHeader *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.accordion .accordionItem .accordionHeader .accordionIcons
+{
+	margin-left: 5px;
+	margin-right: 20px;
+}
+
+.accordion .accordionItem .accordionContent
+{
+	display: none;
+	height: 0px;
+	overflow: hidden;
+}

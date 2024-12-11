@@ -1,0 +1,15 @@
+.toolTip
+{
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	padding: 5px;
+	padding-left: 7px;
+	padding-right: 7px;
+	border-radius: 1px;
+	border: solid 1px rgb(120, 120, 120);
+	background-color: rgb(60, 60, 60);
+	box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.9);
+	font-size: 0.8em;
+	z-index: 1000000000;
+}

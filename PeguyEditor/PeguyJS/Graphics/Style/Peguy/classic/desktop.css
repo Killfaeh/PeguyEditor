@@ -1,0 +1,180 @@
+.desktop
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 35px;
+	bottom: 0px;
+	overflow: hidden;
+}
+
+/* Espace occupé par les icônes mac */
+/* 140x110 */
+/* 280x220 en retina */
+
+.desktop > .standard
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 140px;
+	height: 115px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.desktop > .standard .standardIcon
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 120px;
+	height: 41px;
+	margin: 10px;
+	padding: 0px;
+}
+
+.desktop .desktopColumn
+{
+	position: absolute;
+	top: 0px;
+	width: 140px;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+
+.desktop .desktopColumn .desktopItem
+{
+	list-style-type: none;
+	width: 140px;
+	height: 115px;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	text-align: center;
+}
+
+.desktop .desktopColumn .desktopItem .desktopItemIcon
+{
+	display: inline-block;
+	height: 41px;
+	margin: 0px;
+	padding: 10px;
+	text-align: center;
+}
+
+.desktop .desktopColumn .desktopItem .desktopItemIcon
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.desktop .desktopColumn .desktopItem .desktopItemIcon img,
+.desktop .desktopColumn .desktopItem .desktopItemIcon svg
+{
+	max-height: 61px;
+	max-width: 140px;
+}
+
+.desktop .desktopColumn .desktopItem .desktopItemLabel
+{
+	display: inline-block;
+	margin: 0px;
+	margin-top: 5px;
+	padding: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 0.9em;
+}
+
+.desktop .desktopColumn .selected .desktopItemIcon
+{
+	padding: 8px;
+	border: 2px solid rgba(128, 128, 128, 0.6);
+	border-radius: 5px;
+	background-color: rgba(128, 128, 128, 0.3);
+}
+
+.desktop .desktopColumn .selected .desktopItemLabel
+{
+	border-radius: 5px;
+	background-color: rgba(128, 128, 128, 0.8);
+	color: rgb(255, 255, 255);
+}
+
+.desktop .selectRect
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100px;
+	height: 100px;
+	border: 1px solid rgba(255, 255, 255, 0.9);
+	background-color: rgba(255, 255, 255, 0.3);
+	display: none;
+}
+
+/* *********** */
+/* Drag & Drop */
+/* *********** */
+
+.ghost-desktopItem
+{
+	position: absolute;
+	display: block;
+	list-style-type: none;
+	text-align: center;
+	z-index: 10000030;
+}
+
+.ghost-desktopItem
+{
+	list-style-type: none;
+	width: 140px;
+	height: 115px;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	text-align: center;
+}
+
+.ghost-desktopItem .desktopItemIcon
+{
+	display: inline-block;
+	height: 41px;
+	margin: 0px;
+	padding: 10px;
+	text-align: center;
+}
+
+.ghost-desktopItem .desktopItemIcon
+{
+	display: inline-block;
+	vertical-align: middle;
+	padding: 8px;
+	border: 2px solid rgba(128, 128, 128, 0.6);
+	border-radius: 5px;
+	background-color: rgba(128, 128, 128, 0.3);
+}
+
+.ghost-desktopItem .desktopItemIcon img,
+.ghost-desktopItem .desktopItemIcon svg
+{
+	max-height: 61px;
+	max-width: 140px;
+}
+
+.ghost-desktopItem .desktopItemLabel
+{
+	display: inline-block;
+	margin: 0px;
+	margin-top: 5px;
+	padding: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 0.9em;
+	border-radius: 5px;
+	background-color: rgba(128, 128, 128, 0.8);
+	color: rgb(255, 255, 255);
+}

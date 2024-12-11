@@ -1,0 +1,92 @@
+.consoleFrame
+{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 500px;
+	height: 400px;
+	
+	padding: 10px;
+	
+	border-radius: 5px;
+	border: solid 2px rgb(120, 120, 120);
+	background-color: rgb(40, 40, 40);
+	box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.9);
+	
+	z-index: 10000000000;
+}
+
+.consoleFrame .closeIcon
+{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.consoleFrame h4
+{
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	top: 15px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.consoleFrame .content
+{
+	position: absolute;
+	left: 15px;
+	right: 15px;
+	top: 40px;
+	bottom: 15px;
+	
+	overflow: auto;
+	
+	text-align: left;
+	font-size: 0.9em;
+}
+
+.consoleFrame .resizeLeft, .consoleFrame .resizeRight, .consoleFrame .resizeTop, .consoleFrame .resizeBottom,
+.consoleFrame .resizeTL, .consoleFrame .resizeTR, .consoleFrame .resizeBL, .consoleFrame .resizeBR
+{
+	position: absolute;
+}
+
+.consoleFrame .resizeLeft, .consoleFrame .resizeRight
+{
+	top: 0px;
+	bottom: 0px;
+	width: 10px;
+	cursor: ew-resize;
+}
+
+.consoleFrame .resizeLeft { left: 0px; }
+.consoleFrame .resizeRight { right: 0px; }
+
+.consoleFrame .resizeTop, .consoleFrame .resizeBottom
+{
+	left: 0px;
+	right: 0px;
+	height: 10px;
+	cursor: ns-resize;
+}
+
+.consoleFrame .resizeTop { top: 0px; }
+.consoleFrame .resizeBottom { bottom: 0px; }
+
+.consoleFrame .resizeTL, .consoleFrame .resizeTR, .consoleFrame .resizeBL, .consoleFrame .resizeBR
+{
+	width: 10px;
+	height: 10px;
+}
+
+.consoleFrame .resizeTL, .consoleFrame .resizeTR { top: 0px; }
+.consoleFrame .resizeBL, .consoleFrame .resizeBR { bottom: 0px; }
+.consoleFrame .resizeTL, .consoleFrame .resizeBL { left: 0px; }
+.consoleFrame .resizeTR, .consoleFrame .resizeBR { right: 0px; }
+.consoleFrame .resizeTL, .consoleFrame .resizeBR { cursor: nwse-resize; }
+.consoleFrame .resizeTR, .consoleFrame .resizeBL { cursor: nesw-resize; }

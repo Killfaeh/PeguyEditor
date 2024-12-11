@@ -1,0 +1,133 @@
+.frame
+{
+	position: absolute;
+	left: 0px;
+	top: 35px;
+	display: block;
+	padding: 0px;
+	border-radius: 5px;
+	border: solid 2px rgb(120, 120, 120);
+	background-color: rgb(60, 60, 60);
+	box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.9);
+	z-index: 1000000;
+}
+
+.frame .buttonsBlock
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	padding: 0px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+.frame .buttonsBlock svg
+{
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.frame .resizeBlock
+{
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	padding: 0px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+.frame .resizeLeft, .frame .resizeRight, .frame .resizeTop, .frame .resizeBottom,
+.frame .resizeTL, .frame .resizeTR, .frame .resizeBL, .frame .resizeBR
+{
+	position: absolute;
+}
+
+.frame .resizeLeft, .frame .resizeRight
+{
+	top: 0px;
+	bottom: 0px;
+	width: 10px;
+	cursor: ew-resize;
+}
+
+.frame .resizeLeft { left: 0px; }
+.frame .resizeRight { right: 0px; }
+
+.frame .resizeTop, .frame .resizeBottom
+{
+	left: 0px;
+	right: 0px;
+	height: 10px;
+	cursor: ns-resize;
+}
+
+.frame .resizeTop { top: 0px; }
+.frame .resizeBottom { bottom: 0px; }
+
+.frame .resizeTL, .frame .resizeTR, .frame .resizeBL, .frame .resizeBR
+{
+	width: 10px;
+	height: 10px;
+}
+
+.frame .resizeTL, .frame .resizeTR { top: 0px; }
+.frame .resizeBL, .frame .resizeBR { bottom: 0px; }
+.frame .resizeTL, .frame .resizeBL { left: 0px; }
+.frame .resizeTR, .frame .resizeBR { right: 0px; }
+.frame .resizeTL, .frame .resizeBR { cursor: nwse-resize; }
+.frame .resizeTR, .frame .resizeBL { cursor: nesw-resize; }
+
+.frame .titleBlock
+{
+	text-align: center;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	height: 40px;
+}
+
+.frame .backgroundTitleBlock { display: none; }
+
+.frame .titleBlock *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.frame .innerFrame > .content
+{
+	position: relative;
+	margin: 10px;
+	margin-top: 40px;
+	/*margin-bottom: 20px;*/
+	min-width: 300px;
+	min-height: 200px;
+	border: solid 1px rgb(120, 120, 120);
+}
+
+/* ********************** */
+/* Fenêtre déselectionnée */
+/* ********************** */
+
+.blurFrame
+{
+	border: solid 2px rgb(70, 70, 70);
+	background-color: rgb(40, 40, 40);
+	box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.9);
+}
+
+.blurFrame .buttonsBlock svg
+{
+	filter: saturate(0.0);
+	-webkit-filter: saturate(0.0);
+	-moz-filter: saturate(0.0);
+	-ms-filter: saturate(0.0);
+	-o-filter: saturate(0.0);
+	opacity: 0.5;
+}
+
+.blurFrame .title { color: rgb(100, 100, 100); }
+.blurFrame .content { border: solid 1px rgb(70, 70, 70) !important; }

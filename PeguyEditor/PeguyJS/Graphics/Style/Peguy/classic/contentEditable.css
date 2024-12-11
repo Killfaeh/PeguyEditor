@@ -1,0 +1,178 @@
+
+.contentEditable .buttons { text-align: left; }
+
+.contentEditable .buttons p
+{
+	background-color: rgb(60, 60, 60);
+	display: inline-block;
+	border: 1px solid rgb(155, 155, 155);
+	border-radius: 5px;
+	padding: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin: 0px;
+	margin-bottom: 7px !important;
+	margin-right: 10px !important;
+	font-size: 0.9em;
+	vertical-align: middle;
+	height: 32px;
+}
+
+.contentEditable .buttons .undoRedo { display: none; }
+
+.contentEditable .buttons .size
+{
+	border: none;
+	border-radius: 0px;
+	background-color: rgba(60, 60, 60, 0);
+}
+
+.contentEditable .buttons .font { font-family: "Times New Roman"; }
+
+.contentEditable .buttons a
+{
+	display: inline-block;
+	color: rgb(255, 255, 255);
+	padding: 5px;
+	padding-left: 6px;
+	padding-right: 6px;
+	margin: 0px;
+	font-style: normal;
+	font-weight: normal;
+	vertical-align: middle;
+}
+
+.contentEditable .buttons a:hover { color: rgb(155, 155, 155); }
+
+.contentEditable .buttons a svg { vertical-align: middle; }
+
+.contentEditable .editor,
+.contentEditable .bbEditor
+{
+	background-color: rgb(60, 60, 60);
+	border: 1px solid rgb(120, 120, 120);
+	margin: 0px;
+	padding: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	min-height: 150px;
+	max-height: 1000px;
+	overflow: auto;
+	text-align: left;
+	width: calc(100% - 12px);
+}
+
+.contentEditable .bbEditor
+{
+	display: none;
+	resize: none;
+}
+
+.contentEditable .editor p
+{
+	min-height: 18px;
+	margin-bottom: 20px;
+}
+
+.contentEditable .editor ul, .contentEditable .editor ol
+{
+	margin: 20px;
+	margin-left: 50px;
+}
+
+.contentEditable .editor ul ul, .contentEditable .editor ul ol, 
+.contentEditable .editor ol ul, .contentEditable .editor ol ol
+{
+	margin: 0px;
+	margin-left: 20px;
+}
+
+.contentEditable .editor table
+{
+	max-width: 90%;
+	border-collapse: collapse;
+	border-radius: 5px;
+	background-color: none;
+	margin: auto;
+}
+
+.contentEditable .editor th, .contentEditable .editor td 
+{
+	padding: 10px; 
+	border: solid rgb(120, 120, 120) 1px; 
+}
+
+.contentEditable .editor td pre
+{
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	background-color: none;
+}
+
+.contentEditable .editor th p:last-child, .contentEditable .editor td p:last-child
+{
+	margin-bottom: 0px;
+}
+
+.contentEditable .editor img
+{
+	/*max-width: min(80%, 800px);*/
+	max-width: 600px;
+	/*max-height: 800px;*/
+	margin-bottom: 5px;
+	border-radius: 5px;
+	border: solid 1px rgba(0, 0, 0, 0.4);
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.contentEditable .editor pre, .contentEditable .editor code { white-space: pre-wrap; }
+
+.contentEditable .editor blockquote, .contentEditable .editor pre
+{
+	padding: 20px;
+	padding-left: 60px;
+	background-color: rgba(60, 60, 60, 0.8);
+	border-radius: 10px;
+	margin: 0px;
+	margin-bottom: 20px;
+	border: 1px solid rgb(120, 120, 120);
+}
+
+.contentEditable .editor blockquote { font-style: italic; }
+.contentEditable .editor blockquote .user-name { font-weight: bold; }
+.contentEditable .editor .code-language { font-weight: bold; }
+
+/* ****** */
+/* Popups */
+/* ****** */
+
+.popup .select-img-inputs input[type="text"],
+.popup .insert-url-input input[type="text"]
+{
+	width: 500px;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+
+.popup .select-img-inputs
+{
+	text-align: center;
+	white-space: nowrap;
+}
+
+.popup .select-img-inputs *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.popup .select-img-inputs svg { margin-right: 10px; }
+
+.popup .select-img-inputs .inputFile form
+{
+	max-width: 175px;
+	overflow: hidden;
+}
+
+/* .popup .select-img-inputs .inputFile .mask { text-align: center; } */

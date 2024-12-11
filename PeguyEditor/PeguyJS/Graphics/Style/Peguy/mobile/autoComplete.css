@@ -1,0 +1,98 @@
+.autoComplete p { margin: 0px;}
+
+.autoCompletePopup
+{
+	position: absolute;
+	left: 20px;
+	right: 20px;
+	top: 20px;
+	bottom: 20px;
+	overflow: hidden;
+	text-align: left;
+}
+
+.autoCompletePopup p { text-align: center; }
+
+.autoComplete .selectedBlock,
+.autoCompletePopup .selectedBlock
+{
+	position: relative;
+}
+
+.autoComplete .selectedBlock .truncate,
+.autoCompletePopup .selectedBlock .truncate
+{
+	display: none;
+	position: absolute;
+	right: 5px;
+	top: 1px;
+	bottom: 1px;
+	width: 40px;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	background-image: linear-gradient(to right, rgba(60, 60, 60, 0) 0%, rgba(60, 60, 60, 1) 75%);
+}
+
+.autoCompletePopup .panel
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 57px;
+	bottom: 0px;
+	padding: 0px;
+	z-index: 1000000000;
+	overflow-x: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.autoCompletePopup .panel table
+{
+	border-collapse: collapse;
+	max-width: 100%;
+	width: 100%;
+};
+
+.autoCompletePopup .panel tr { cursor: pointer; }
+.autoCompletePopup .panel .numero { width: 20%; };
+
+.autoCompletePopup .panel .dossier,
+.autoCompletePopup .panel .client
+{
+	width: 40%;
+	max-width: 40%;
+};
+
+.autoCompletePopup .panel td
+{
+	position: relative;
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+.autoCompletePopup .panel td p
+{
+	padding: 0px;
+	margin: 0px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 1.0em;
+	text-align: left;
+	overflow: hidden;
+}
+
+.autoCompletePopup .panel td p *
+{
+	white-space: nowrap;
+	margin: 5px;
+}
+
+.autoCompletePopup .panel .error td { text-align: center; }
+
+.autoCompletePopup .panel .celluleCoupee
+{
+	-webkit-mask-image: -webkit-linear-gradient(right, rgba(60, 60, 60, 0) 0%, rgb(60, 60, 60) 40px);
+}

@@ -1,0 +1,136 @@
+.fileSystem
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	overflow: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+	text-align: left;
+}
+
+.fileSystem .column
+{
+	display: inline-block;
+	vertical-align: top;
+	overflow: auto;
+	overflow-x: hidden;
+	width: 250px;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	border-right: solid 1px rgb(120, 120, 120);
+}
+
+.fileSystem .column ul
+{
+	overflow: auto;
+	overflow-x: hidden;
+	width: 250px;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+}
+
+.fileSystem ul li
+{
+	list-style-type: none;
+	text-align: left;
+	padding: 5px;
+	padding-left: 10px;
+	position: relative;
+}
+
+.fileSystem ul li *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.fileSystem ul li .icon { margin-right: 10px; }
+.fileSystem ul li .selectIcon { display: none; }
+
+.fileSystem ul li .arrow
+{
+	color: rgb(251, 190, 0);
+	position: absolute;
+	right: 10px;
+	top: 0px;
+	bottom: 0px;
+}
+
+.fileSystem ul li .arrow *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.fileSystem ul .selected
+{
+	background-color: rgb(58, 195, 255);
+	color: rgb(0, 0, 0);
+}
+
+.fileSystem ul .selected .unselectIcon { display: none; }
+.fileSystem ul .selected .selectIcon { display: inline-block; }
+
+.fileSystem ul .selected .arrow { color: rgb(0, 0, 0); }
+
+.fileSystem ul > .drag-over
+{
+	background-color: rgb(230, 230, 230);
+	color: rgb(0, 0, 0);
+}
+
+.fileSystem ul > .drag-over .arrow { color: rgb(251, 190, 0); }
+
+.fileSystem > .drag-over
+{
+	box-shadow: -3px -3px 1px rgb(120, 120, 120) inset,
+				inset 3px 3px 1px rgb(120, 120, 120);
+}
+
+/* *********** */
+/* Drag & Drop */
+/* *********** */
+
+.fileSystem .virtual-fileSystemItem
+{
+	background-color: rgb(128, 128, 128);
+	color: rgb(0, 0, 0);
+}
+
+.fileSystem .virtual-fileSystemItem .unselectIcon { display: none; }
+.fileSystem .virtual-fileSystemItem .selectIcon { display: inline-block; }
+
+.fileSystem ul .virtual-fileSystemItem .arrow
+{
+	color: rgb(0, 0, 0);
+}
+
+.ghost-fileSystemItem
+{
+	list-style-type: none;
+	text-align: left;
+	padding: 5px;
+	padding-left: 10px;
+	background-color: rgb(58, 195, 255);
+	color: rgb(0, 0, 0);
+	position: absolute;
+	z-index: 10000030;
+	border-radius: 20px;
+}
+
+.ghost-fileSystemItem *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.ghost-fileSystemItem .icon { margin-right: 10px; }
+
+.ghost-fileSystemItem .unselectIcon { display: none; }
+.ghost-fileSystemItem .selectIcon { display: inline-block; }
+.ghost-fileSystemItem .arrow { display: none; }

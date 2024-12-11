@@ -1,0 +1,40 @@
+.codeEditor code { padding: 13px; }
+
+.codeEditor .editor
+{
+    padding-left: 53px;
+    tab-size: 30px;
+}
+
+.codeEditor .num-lines
+{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 40px;
+    background-color: rgb(20, 20, 20);
+    color: rgb(200, 200, 200);
+    border-right: 1px solid rgb(128, 128, 128);
+    overflow: hidden;
+}
+
+.codeEditor .num-lines code
+{
+    position: absolute;
+    top: 0px;
+    padding: 7px;
+    padding-top: 13px;
+    padding-right: 13px;
+    overflow: hidden;
+}
+
+.codeEditor p
+{
+    /*display: inline-block;*/
+    padding: 0px;
+    margin: 0px;
+    height: 0px;
+    width: 0px;
+    /*display: none;*/
+}
