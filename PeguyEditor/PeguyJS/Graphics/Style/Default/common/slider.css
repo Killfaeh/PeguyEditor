@@ -1,0 +1,23 @@
+.slider
+{
+	margin: auto;
+	position: relative;
+}
+
+.slider .sliderBar
+{
+	margin: 9px;
+	background-color: rgb(235, 235, 235);
+	border-radius: 5px;
+	height: 5px;
+}
+
+.slider .sliderHandler
+{
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	left: 0px;
+	top: -7px;
+	cursor: pointer;
+}

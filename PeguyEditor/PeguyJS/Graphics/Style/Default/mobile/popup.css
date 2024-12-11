@@ -1,0 +1,53 @@
+.popup
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	background-color: rgba(255, 255, 255, 0.8);
+	z-index: 100000000;
+	-webkit-backdrop-filter: blur(1px);
+	backdrop-filter: blur(1px);
+}
+
+.popupContent
+{
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	top: 10px;
+	bottom: 10px;
+	
+	padding: 0px;
+	border-radius: 5px;
+	border: solid 1px rgb(223, 223, 223);
+	background-color: rgb(255, 255, 255);
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+	
+	overflow: auto;
+}
+
+.popup .popupContent .close
+{
+	padding: 6px;
+	padding-left: 12px;
+	padding-bottom: 12px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	cursor: pointer;
+	z-index: 10;
+}
+
+.popup .popupContent .confirmBlock,
+.popup .popupContent .infoBlock
+{
+	display: inline-block;
+	vertical-align: middle;
+	margin: 30px;
+	font-size: 1.1em;
+}
+
+.popup .popupContent .infoContent { margin-bottom: 20px; }
+.popup h2 { margin-top: 0px; }

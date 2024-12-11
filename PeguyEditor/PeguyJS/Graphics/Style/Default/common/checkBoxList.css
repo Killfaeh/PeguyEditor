@@ -1,0 +1,26 @@
+.checkBoxList
+{
+	list-style-type: none;
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	display: inline-block;
+}
+
+.checkBoxList li
+{
+	margin: 0px;
+	padding: 2px;
+	text-align: left;
+}
+
+.checkBoxList li * { vertical-align: middle; }
+.checkBoxList li input[type="radio"] { margin-right: 10px; }
+
+.checkBoxListColumns .checkBoxList
+{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.checkBoxListColumns .checkBoxList li .checkBox { margin-right: 10px; }

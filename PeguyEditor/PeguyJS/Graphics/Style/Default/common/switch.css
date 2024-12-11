@@ -1,0 +1,28 @@
+.switch
+{
+	margin: auto;
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	cursor: pointer;
+}
+
+.switch .switchBar,
+.switch .switchBarOn
+{
+	margin: 9px;
+	background-color: rgb(235, 235, 235);
+	border-radius: 6px;
+	height: 12px;
+}
+
+.switch .switchBarOn { background-color: rgb(0, 200, 50); }
+
+.switch .switchHandler
+{
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 0px;
+	top: 5px;
+}

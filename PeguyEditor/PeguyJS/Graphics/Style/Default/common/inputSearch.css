@@ -1,0 +1,28 @@
+.search
+{
+	position: relative;
+}
+
+.search .searchInner
+{
+	display: inline-block;
+	position: relative;
+}
+
+.search .searchIcon, .search .emptyIcon
+{
+	display: block;
+	position: absolute;
+	top: 5px;
+	right: 7px;
+	top: 0px;
+	bottom: 0px;
+}
+
+.search .emptyIcon { cursor: pointer; }
+
+.search .searchIcon *, .search .emptyIcon *
+{
+	display: inline-block;
+	vertical-align: middle;
+}

@@ -1,0 +1,26 @@
+.radioList
+{
+	list-style-type: none;
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	display: inline-block;
+}
+
+.radioList li
+{
+	margin: 0px;
+	padding: 2px;
+	text-align: left;
+}
+
+.radioList li * { vertical-align: middle; }
+.radioList li input[type="radio"] { margin-right: 10px; }
+
+.radioListColumns .radioList
+{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.radioListColumns .radioList li input[type="radio"] { margin-right: 5px; }

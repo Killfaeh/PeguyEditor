@@ -1,0 +1,15 @@
+.buttonsMenu
+{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.buttonsMenu .buttonsMenuItem
+{
+    list-style-type: none;
+    margin: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}

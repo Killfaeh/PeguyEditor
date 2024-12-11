@@ -1,0 +1,114 @@
+.contentEditable
+{
+	width: 100%;
+	text-align: center;
+	white-space: normal;
+}
+
+.contentEditable .buttons { text-align: center; }
+
+.contentEditable .buttons p
+{
+	background-color: rgb(255, 255, 255);
+	display: inline-block;
+	border: 1px solid rgb(100, 100, 100);
+	border-radius: 5px;
+	padding: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin: 0px;
+	margin-bottom: 7px !important;
+	margin-left: 5px !important;
+	margin-right: 5px !important;
+	font-size: 0.9em;
+	vertical-align: middle;
+}
+
+.contentEditable .buttons .undoRedo { display: none; }
+
+.contentEditable .buttons .size
+{
+	border: none;
+	border-radius: 0px;
+	background-color: rgba(255, 255, 255, 0);
+}
+
+.contentEditable .buttons a
+{
+	display: inline-block;
+	color: rgb(0, 0, 0);
+	padding: 5px;
+	padding-left: 6px;
+	padding-right: 6px;
+	margin: 0px;
+	font-style: normal;
+	font-weight: normal;
+	vertical-align: middle;
+}
+
+.contentEditable .buttons a:hover { color: rgb(100, 100, 100); }
+
+.contentEditable .editor,
+.contentEditable .bbEditor
+{
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgb(100, 100, 100);
+	margin: 0px;
+	padding: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	min-height: 150px;
+	text-align: left;
+	overflow: auto;
+	width: calc(100% - 12px);
+}
+
+.contentEditable .bbEditor
+{
+	display: none;
+	resize: none;
+}
+
+.contentEditable .editor p
+{
+	min-height: 18px;
+	margin-bottom: 20px;
+}
+
+.contentEditable .editor ul, .contentEditable .editor ol
+{
+	margin: 20px;
+	margin-left: 40px;
+}
+
+.contentEditable .editor ul ul, .contentEditable .editor ul ol, 
+.contentEditable .editor ol ul, .contentEditable .editor ol ol
+{
+	margin: 0px;
+	margin-left: 20px;
+}
+
+.contentEditable .editor img
+{
+	max-width: calc(100% - 20px);
+	width: calc(100% - 20px);
+	border: 1px solid rgb(200, 200, 200);
+	border-radius: 10px
+}
+
+.contentEditable .editor pre, .contentEditable .editor code { white-space: pre-wrap; }
+
+.contentEditable .editor blockquote, .contentEditable .editor .code
+{
+	padding: 20px;
+	padding-left: 20px;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 10px;
+	margin: 0px;
+	margin-bottom: 20px;
+	border: 1px solid rgb(200, 200, 200);
+}
+
+.contentEditable .editor blockquote { font-style: italic; }
+.contentEditable .editor blockquote .user-name { font-weight: bold; }
+.contentEditable .editor .code-language { font-weight: bold; }

@@ -1,0 +1,30 @@
+.checkBox { display: inline-block; }
+
+.checkBox .inner
+{
+	display: inline-block;
+	border-radius: 5px;
+	border: 1px rgb(162, 160, 160) solid;
+	min-width: 25px;
+	width: 25px;
+	height: 25px;
+	background-color: rgb(255, 255, 255);
+	margin: 0px;
+	position: relative;
+	white-space: nowrap;
+}
+
+.checkBox .inner *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.inputCheckBox
+{
+    list-style-type: none;
+    padding: 5px;
+    margin: 0px;
+}
+
+.inputCheckBox .checkBox { margin-right: 10px; }

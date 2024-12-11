@@ -1,0 +1,177 @@
+.dock
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	padding: 0px;
+	padding-top: 20px;
+	white-space: nowrap;
+	z-index: 10000000;
+	text-align: center;
+}
+
+.dock .movingBlock
+{
+	display: inline-block;
+	position: relative;
+}
+
+.dock .movingBlock > div
+{
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.dock .movingBlock > .center { position: relative; }
+
+.dock .support
+{
+	background-color: rgba(255, 255, 255, 0.5);
+	-webkit-backdrop-filter: blur(1px);
+	backdrop-filter: blur(1px);
+	height: 50px;
+	min-width: 20px;
+	z-index: 10000010;
+}
+
+.dock .movingBlock > .center .supportCenter
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+
+.dock .supportLeft { border-top-left-radius: 5px; }
+.dock .supportRight { border-top-right-radius: 5px; }
+
+.dock .listIcons
+{
+	white-space: nowrap;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	z-index: 10000020;
+}
+
+.dock .listIcons .dockItem
+{
+	display: inline-block;
+	vertical-align: bottom;
+	list-style-type: none;
+	text-align: center;
+}
+
+.dock .listIcons .dockItem .dockItemLabel
+{
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.5);
+	-webkit-backdrop-filter: blur(1px);
+	backdrop-filter: blur(1px);
+	border-radius: 5px;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 0px;
+	margin-bottom: 10px;
+	color: rgb(30, 30, 30);
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+	display: none;
+}
+
+.dock .listIcons .dockItem .dockItemIcon
+{
+	text-align: center;
+	margin: auto;
+}
+
+.dock .listIcons .dockItem .dockItemIcon *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.dock .listIcons .dockItem .dockItemIcon img,
+.dock .listIcons .dockItem .dockItemIcon svg
+{
+	max-height: 200px;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.dock .listIcons .dockItem .openIcon
+{
+	width: 100%;
+	height: 18px;
+}
+
+.dock .listIcons .dockItem .openIcon svg
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* *********** */
+/* Drag & Drop */
+/* *********** */
+
+.dock .virtual-dockItem
+{
+	margin: 0px;
+	padding: 0px;
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	height: 100%;
+	overflow: visible;
+	color: rgba(250, 250, 250, 0.0);
+	z-index: 15;
+}
+
+.ghost-dockItem
+{
+	position: absolute;
+	display: block;
+	list-style-type: none;
+	text-align: center;
+	z-index: 10000030;
+}
+
+.ghost-dockItem .dockItemLabel
+{
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.5);
+	-webkit-backdrop-filter: blur(1px);
+	backdrop-filter: blur(1px);
+	border-radius: 5px;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 0px;
+	margin-bottom: 10px;
+	color: rgb(30, 30, 30);
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ghost-dockItem .dockItemIcon
+{
+	text-align: center;
+	margin: auto;
+}
+
+.ghost-dockItem .dockItemIcon *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.ghost-dockItem .dockItemIcon img,
+.ghost-dockItem .dockItemIcon svg
+{
+	max-height: 200px;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.ghost-dockItem .openIcon { display: none; }
