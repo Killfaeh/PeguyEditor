@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		
+		<!-- Désactiver les comportements natifs indésirables des mobiles -->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, minimum-scale=1" />
+		<meta name="viewport" content="width=device-width, maximum-scale=1" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name=“viewport” content=”initial-scale=1, viewport-fit=cover”>
+		
+		<title>Code Editor</title>
+		
+		<!-- Style de la page HTML affichée pendant le chargement du framework et autres contenus, à adapter selon les besoins -->
+		<style>
+			
+			#main, #screen
+			{
+				position: absolute;
+				left: 0px;
+				right: 0px;
+				top: 0px;
+				bottom: 0px;
+				
+				overflow: hidden;
+				
+				margin: 0px;
+				padding: 0px;
+				
+				text-align: center;
+				font-family: Arial;
+			}
+			
+			#loadingScreen
+			{
+				z-index: 100000000;
+				position: absolute;
+				left: 0px;
+				right: 0px;
+				top: 0px;
+				bottom: 0px;
+				background-color: rgba(255, 255, 255, 0.8);
+				-webkit-backdrop-filter: blur(1px);
+				backdrop-filter: blur(1px);
+				text-align: center;
+				white-space: nowrap;
+				display: none;
+			}
+			
+			#loadingScreen > div
+			{
+				display: inline-block;
+				vertical-align: middle;
+			}
+			
+			#loadingGif
+			{
+				width: 250px;
+			}
+			
+		</style>
+		
+		<link type="text/css" rel="stylesheet" media="all" href="js/highlight/styles/atom-one-dark-reasonable.min.css"></link>
+		<script src="js/highlight/highlight.min.js"></script>
+		<script>if (typeof hljs !== 'undefined') { hljs.initHighlightingOnLoad(); }</script>
+		
+	</head>
+	
+	<!-- Racine du DOM, la présence de l'id "main" est obligatoire -->
+	<body id="main">
+
+		<!-- Zone d'écran principal de l'application, la présence de l'id "screen" est obligatoire -->
+		<div id="screen">
+			<p>Loading...</p>
+		</div>
+		
+		<!-- Chargement du Loader qui permet d'initialiser le framework ensuite -->
+		<script src='PeguyJS/Loader.js?token=0' ></script>
+		
+		<script>
+
+			function delay(milliseconds)
+			{
+				return new Promise(resolve => { setTimeout(resolve, milliseconds); });
+			}
+
+			var appData;
+			var viewManager;
+			var notifCenter;
+
+			// Instanciation du Loader
+			var Loader = new Loader('', 'Peguy');
+			
+			Loader.addModules(['codeEditor']);
+			
+			Loader.addStyle('css/global.css', 'global');
+
+			Loader.addScript('js/ViewManager.js?token=' + Loader.getToken(), 'viewManager');
+			Loader.addScript('js/Document.js?token=' + Loader.getToken(), 'document');
+			
+			Loader.addComponent('css/appGrid.css', 'js/AppGrid.js', 'appGrid');
+			Loader.addComponent('css/quickCodePanel.css', 'js/QuickCodePanel.js', 'quickCodePanel');
+			Loader.addComponent('css/workspacePanel.css', 'js/WorkspacePanel.js', 'workspacePanel');
+			
+			// Redéfinir la fonction this.onload
+			Loader.onload = function()
+			{ 
+				Debug.consoleKey = 'Escape';
+				Debug.onError = function($message, $source, $lineno, $colno, $error) {};
+				
+				viewManager = new ViewManager();
+				viewManager.init();
+				viewManager.resize();
+				document.getElementById('main').appendChild(viewManager);
+				viewManager.focus();
+				
+				document.getElementById('main').onDrop = function($event) { Events.emit('onDropFiles', [$event]); };
+				
+				notifCenter = new NotificationsManager();
+				document.getElementById('main').appendChild(notifCenter);
+
+				Events.onResize = function() { viewManager.resize(); };
+			}; 
+			
+			// On ne lance le chargement du framework que lorsque la page HTML qui héberge l'application a fini de charger
+			window.onload = function() { Loader.load(); }; 
+
+		</script>
+		
+	</body>
+</html>
