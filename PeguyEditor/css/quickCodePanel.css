@@ -1,0 +1,54 @@
+.quickCodePanel
+{
+	background-color: rgb(40, 40, 40);
+}
+
+.quickCodePanel .topPanel, .quickCodePanel .bottomPanel
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+}
+
+.quickCodePanel .topPanel
+{
+	top: 10px;
+	bottom: calc(50% + 7px);
+	bottom: calc(100% - 29px);
+	/*padding: 10px;*/
+}
+
+.quickCodePanel .topPanel .search .searchInner
+{
+	width: 100%;
+}
+
+.quickCodePanel .topPanel .search .searchInner input
+{
+	width: calc(100% - 24px);
+}
+
+.quickCodePanel .bottomPanel
+{
+	top: calc(50% + 7px);
+	top: 46px;
+	bottom: 0px;
+	overflow: auto;
+}
+
+.quickCodePanel .bottomPanel .codeRow *
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.quickCodePanel .bottomPanel .codeRow .preview
+{
+	margin-right: 10px;
+}
+
+.quickCodePanel .bottomPanel .codeRow svg
+{
+	cursor: pointer;
+	margin: 3px;
+}

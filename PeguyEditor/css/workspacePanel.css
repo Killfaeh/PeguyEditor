@@ -1,0 +1,41 @@
+.workspacePanel .topPanel, .workspacePanel .bottomPanel
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+}
+
+.workspacePanel .topPanel
+{
+	top: 0px;
+	bottom: calc(100% - 50px);
+}
+
+.workspacePanel .topPanel .refresh-icon
+{
+	position: absolute;
+	right: 0px;
+	top: 10px;
+}
+
+.workspacePanel .bottomPanel
+{
+	top: 50px;
+	bottom: 0px;
+	overflow: auto;
+}
+
+.workspacePanel .bottomPanel .tree ul, 
+.workspacePanel .bottomPanel .tree ol
+{
+	padding-left: 12px;
+}
+
+.workspacePanel .bottomPanel .tree li
+{
+    list-style-type: none;
+    text-align: left;
+    margin: 0px;
+	padding-left: 10px;
+	border-left: solid 1px rgb(128, 128, 128);
+}

@@ -1,0 +1,35 @@
+.document
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+}
+
+.panel
+{
+	position: absolute;
+	padding: 0px;
+	border: solid 1px rgb(120, 120, 120);
+	overflow: auto;
+}
+
+.panel table
+{
+	width: 100%;
+}
+
+.panel table th
+{
+	padding-top: 15px;
+	padding-bottom: 10px;
+}
+
+.panel table td
+{
+	text-align: left;
+	padding: 5px;
+}
+
+.panel table .right { text-align: right; }

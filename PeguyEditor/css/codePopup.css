@@ -1,0 +1,43 @@
+.code-popup .popupContent
+{
+	position: absolute;
+	left: 100px;
+	right: 100px;
+	top: 100px;
+	bottom: 100px;
+}
+
+.code-popup .popupContent h2
+{
+	position: absolute;
+	left: 30px;
+	right: 30px;
+	top: 30px;
+}
+
+.code-popup .code-block
+{
+	position: absolute;
+	left: 30px;
+	right: 30px;
+	top: 75px;
+	bottom: 60px;
+	padding: 20px;
+	text-align: left;
+	border: solid 1px rgb(128, 128, 128);
+	border-radius: 5px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.2);
+	overflow: auto;
+	font-family: monospace;
+}
+
+.code-popup .copyIcon
+{
+	position: absolute;
+	right: 30px;
+	bottom: 30px;
+	width: 22px;
+	height: 22px;
+	cursor: pointer;
+}

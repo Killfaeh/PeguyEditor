@@ -1,0 +1,102 @@
+.appGrid
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 34px;
+	bottom: 0px;
+}
+
+.appGrid > .leftPanel, .appGrid > .rightPanel
+{
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+}
+
+.appGrid > .leftPanel
+{
+	left: 0px;
+	right: 464px;
+}
+
+.appGrid > .leftPanel > .leftPanel, .appGrid > .leftPanel > .centerPanel
+{
+	position: absolute;
+	top: 0px;
+	bottom: 10px;
+}
+
+.appGrid > .leftPanel > .leftPanel
+{
+	left: 10px;
+	right: calc(100% - 350px);
+	top: 10px;
+}
+
+.appGrid > .leftPanel > .centerPanel
+{
+	left: 364px;
+	right: 0px;
+}
+
+.appGrid > .leftPanel > .centerPanel .codeEditor
+{
+	left: 10px;
+	right: 10px;
+	top: 10px;
+	bottom: 10px;
+}
+
+.appGrid > .leftPanel > .centerPanel .codeEditor .num-lines
+{
+	text-align: left;
+}
+
+.appGrid > .leftPanel > .centerPanel .codeEditor .num-lines code
+{
+	left: 0px;
+}
+
+.appGrid > .leftPanel > .centerPanel .codeEditor .editor
+{
+	padding: 10px;
+	margin: 0px;
+	text-align: left;
+	background-color: rgb(40, 40, 40);
+	position: absolute;
+	left: 40px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	overflow: auto;
+}
+
+.appGrid > .leftPanel .openAssets
+{
+	position: absolute;
+	right: 0px;
+	top: 2px;
+	padding: 5px;
+	border-radius: 5px 0px 0px 5px;
+	background-color: rgb(40, 40, 40);
+	z-index: 1000;
+}
+
+.appGrid > .leftPanel .openAssets *
+{
+	vertical-align: middle;
+}
+
+.appGrid > .rightPanel
+{
+	left: calc(100% - 450px);
+	right: 10px;
+	top: 0px;
+	bottom: 10px;
+}
+
+.appGrid > .rightPanel .tabManager
+{
+	background-color: rgb(40, 40, 40);
+}
