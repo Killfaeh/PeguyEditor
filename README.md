@@ -16,9 +16,23 @@ Run it as administrator.
 
 **Mac OS**
 
+Open a terminal. </br>
+Install Homebrew if you haven't already.
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Then, install Node.js and npm.
+
+```bash
+brew install node
+brew install npm
+```
+
 **Linux**
 
-Run these 2 commands.
+Open a terminal and run these 2 commands.
 
 ```bash
 sudo apt install nodejs
