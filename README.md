@@ -41,7 +41,8 @@ sudo apt install npm
 
 ### Download and extract the archive
 
-[archive](https://drive.google.com/file/d/1gWRVWW9li51609z9BfiJkvzBM3MaxLfr/view?usp=sharing) </br>
+Download the release archive via this Google Drive link : [https://drive.google.com/file/d/1gWRVWW9li51609z9BfiJkvzBM3MaxLfr/view?usp=sharing](https://drive.google.com/file/d/1gWRVWW9li51609z9BfiJkvzBM3MaxLfr/view?usp=sharing) </br>
+Then, extract it.
 
 ### Run the application
 
