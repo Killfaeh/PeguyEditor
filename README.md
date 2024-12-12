@@ -18,6 +18,11 @@ Run it as administrator.
 
 **Linux**
 
+```bash
+sudo apt install nodejs
+sudo apt install npm
+```
+
 ### Download and extract the archive
 
 [archive](https://drive.google.com/file/d/1gWRVWW9li51609z9BfiJkvzBM3MaxLfr/view?usp=sharing) </br>
