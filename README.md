@@ -53,6 +53,9 @@ Archive content
 
 **Windows**
 
+If you run Péguy Editor for the first time, run install.bat.</br>
+Then, run PeguyEditor.bat.
+
 **Mac OS**
 
 **Linux**
