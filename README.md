@@ -18,6 +18,8 @@ Run it as administrator.
 
 **Linux**
 
+Run these 2 commands.
+
 ```bash
 sudo apt install nodejs
 sudo apt install npm
