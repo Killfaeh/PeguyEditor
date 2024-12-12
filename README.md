@@ -45,8 +45,8 @@ Download the project archive via this Google Drive link : [https://drive.google.
 Then, extract it.
 
 <div align="center">
-  <img src="./doc/archiveContent.png">
-  *Archive content*
+<img src="./doc/archiveContent.png"></br>
+Archive content
 </div>
 
 ### Run the application
