@@ -1,5 +1,5 @@
 # Péguy Editor
-Péguy Editor is a small code editor based on [Electron](https://www.electronjs.org/) and [Péguy.js](https://github.com/Killfaeh/Peguy.js).
+Péguy Editor is a small code editor based on [Electron](https://www.electronjs.org/), [Péguy.js](https://github.com/Killfaeh/Peguy.js) and [highlight.js](https://highlightjs.org/).
 
 ## Installation
 
