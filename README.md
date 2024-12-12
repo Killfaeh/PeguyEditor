@@ -58,7 +58,12 @@ Then, run PeguyEditor.bat.
 
 **Mac OS**
 
+Run PeguyEditor.app.</br>
+You can put PeguyEditor.app in your dock.
+
 **Linux**
+
+Run PeguyEditor.
 
 ## How to use
 
