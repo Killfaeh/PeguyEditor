@@ -7,6 +7,8 @@ It offers a library of ready-to-use code blocks that can be customized to suit y
 
 ### Install Node.js
 
+You need to install Node.js to run Péguy Editor.
+
 **Windows**
 
 **Mac OS**
