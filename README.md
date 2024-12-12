@@ -11,6 +11,9 @@ You need to install Node.js to run Péguy Editor.
 
 **Windows**
 
+Download the installation file on Node.js web site : [https://nodejs.org/fr/download/prebuilt-installer](https://nodejs.org/fr/download/prebuilt-installer) </br>
+Run it as administrator.
+
 **Mac OS**
 
 **Linux**
