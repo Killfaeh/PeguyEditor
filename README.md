@@ -71,7 +71,9 @@ Run PeguyEditor in a terminal.
 <img src="./doc/screenshot.png">
 </div>
 
-Blablabla
+You can open a workspace by clicking on the button "Change Workspace".</br>
+In the right panel, there is the ready-to-use code blocks library. 
+You can paste a code block in your code by double clicking on the label of the row or simple clicking on the corresponding copy/paste icon.
 
 ## Customize the code blocks library
 
