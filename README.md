@@ -77,6 +77,6 @@ You can paste a code block in your code by double clicking on the label of the r
 
 ## Customize the code blocks library
 
-If you have run Péguy Editor at least once the directory Peguy/CodeEditor/CodeLists has been created.</br>
+If you have run Péguy Editor at least once the directory Peguy/CodeEditor/CodeLists has been created in your Documents directory.</br>
 You can create your own library by creating some CSV files in this directory.</br>
 Here's how to format each CSV file.
