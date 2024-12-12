@@ -12,6 +12,6 @@ It offers a library of ready-to-use code blocks that can be customized to suit y
 
 Blablabla
 
-## Customize the code block library
+## Customize the code blocks library
 
 Blablabla
