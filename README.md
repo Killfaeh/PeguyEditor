@@ -67,6 +67,10 @@ Run PeguyEditor in a terminal.
 
 ## How to use
 
+<div align="center">
+<img src="./doc/screenshot.png">
+</div>
+
 Blablabla
 
 ## Customize the code blocks library
