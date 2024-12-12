@@ -1,7 +1,9 @@
 # Péguy Editor
 
 Péguy Editor is a small code editor based on [Electron](https://www.electronjs.org/), [Péguy.js](https://github.com/Killfaeh/Peguy.js) and [highlight.js](https://highlightjs.org/). </br>
-It offers a library of ready-to-use code blocks that can be customized to suit your needs. This allows you to write code quickly without using online chatbots.
+It offers a library of ready-to-use code blocks that can be customized to suit your needs. 
+This allows you to write code quickly without using online chatbots.
+It's also a way of centralizing your entire knowledge base.
 
 ## Installation
 
