@@ -5,13 +5,25 @@ It offers a library of ready-to-use code blocks that can be customized to suit y
 
 ## Installation
 
-**Install Node.js**
+### Install Node.js
 
-**Download and extract the archive**
+**Windows**
+
+**Mac OS**
+
+**Linux**
+
+### Download and extract the archive
 
 [archive](https://drive.google.com/file/d/1gWRVWW9li51609z9BfiJkvzBM3MaxLfr/view?usp=sharing) </br>
 
-**Run the application**
+### Run the application
+
+**Windows**
+
+**Mac OS**
+
+**Linux**
 
 ## How to use
 
