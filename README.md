@@ -53,17 +53,17 @@ Archive content
 
 **Windows**
 
-If you run Péguy Editor for the first time, run install.bat.</br>
-Then, run PeguyEditor.bat.
+If you run Péguy Editor for the first time, run install.bat (double clic).</br>
+Then, run PeguyEditor.bat (double clic).
 
 **Mac OS**
 
-Run PeguyEditor.app.</br>
+Run PeguyEditor.app (double clic).</br>
 You can put PeguyEditor.app in your dock.
 
 **Linux**
 
-Run PeguyEditor.
+Run PeguyEditor in a terminal.
 
 ## How to use
 
