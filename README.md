@@ -5,6 +5,12 @@ It offers a library of ready-to-use code blocks that can be customized to suit y
 This allows you to write code quickly without using online chatbots.
 It's also a way of centralizing your entire knowledge base.
 
+## Table of Contents
+
+1. [Installation](#installation)
+2. [How to use](#how-to-use)
+3. [Customize the code blocks library](#customize-the-code-blocks-library)
+
 ## Installation
 
 ### Install Node.js
