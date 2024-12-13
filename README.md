@@ -87,8 +87,10 @@ Here is how to format each CSV file.
 <img src="./doc/csvFormat.png">
 </div>
 
+
 In the first row, put the columns labels : "label", "keywords" and "code".</br>
 Then, for each following row, put the label of the row in the first column, the keywords separate with "," in the second column and the code block in the third column.
+
 
 <div align="center">
 <img src="./doc/csvSave.png">
