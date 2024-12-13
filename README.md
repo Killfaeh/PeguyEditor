@@ -40,7 +40,7 @@ brew install npm
 
 **Linux**
 
-Open a terminal and run these 2 commands.
+Open a console and run these 2 commands.
 
 ```bash
 sudo apt install nodejs
@@ -61,7 +61,8 @@ Archive content
 
 **Windows**
 
-If you run Péguy Editor for the first time, run install.bat (double click).</br>
+If you run Péguy Editor for the first time, run install.bat (double click). 
+A DOS console appears, with a small rotating bar in the top left corner, then disappears when installation is complete.</br>
 Then, run PeguyEditor.bat (double click).
 
 **Mac OS**
@@ -71,7 +72,7 @@ You can put PeguyEditor.app in your dock.
 
 **Linux**
 
-Run PeguyEditor in a terminal.
+Run PeguyEditor in a console.
 
 ## How to use
 
