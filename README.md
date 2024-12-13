@@ -88,8 +88,10 @@ Here is how to format each CSV file.
 </div></br>
 
 In the first row, put the columns labels : "label", "keywords" and "code".</br>
-Then, for each following row, put the label of the row in the first column, the keywords separate with "," in the second column and the code block in the third column.</br>
+Then, for each following row, put the label of the row in the first column, the keywords with "," as delimiter in the second column and the code block in the third column.</br>
 
 <div align="center">
 <img src="./doc/csvSave.png">
-</div>
+</div></br>
+
+Then, when you save the CSV file, choose UTF-8 as character set, ":" as field delimiter and " as string delimiter.
