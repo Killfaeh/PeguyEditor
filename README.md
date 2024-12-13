@@ -82,3 +82,11 @@ You can paste a code block in your code by double clicking on the label of the r
 If you have run Péguy Editor at least once the directory Peguy/CodeEditor/CodeLists has been created in your Documents directory.</br>
 You can create your own library by creating some CSV files in this directory.</br>
 Here is how to format each CSV file.
+
+<div align="center">
+<img src="./doc/csvFormat.png">
+</div>
+
+<div align="center">
+<img src="./doc/csvSave.png">
+</div>
