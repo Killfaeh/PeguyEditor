@@ -525,6 +525,10 @@ var Events =
 		document.getElementById('main').onDragExit = new Array();
 		document.getElementById('main').onDrop = new Array();
 		document.getElementById('main').onContextMenu = new Array();
+		document.getElementById('main').onMouseWheel = new Array();
+		document.getElementById('main').onGestureStart = new Array();
+		document.getElementById('main').onGestureChange = new Array();
+		document.getElementById('main').onGestureEnd = new Array();
 		window.onBlur = new Array();
 		window.onFocus = new Array();
 		
@@ -551,6 +555,328 @@ var Events =
 		};
 
 		window.onresize = function() { Events.resize(); };
+	},
+
+	addClickEvent: function($callback)
+	{
+		if (document.getElementById('main').onClick.indexOf($callback) < 0)
+			document.getElementById('main').onClick.push($callback);
+	},
+
+	removeClickEvent: function($callback)
+	{
+		var index = document.getElementById('main').onClick.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onClick.splice(index, 1);
+	},
+
+	addDblClickEvent: function($callback)
+	{
+		if (document.getElementById('main').onDblClick.indexOf($callback) < 0)
+			document.getElementById('main').onDblClick.push($callback);
+	},
+
+	removeDblClickEvent: function($callback)
+	{
+		var index = document.getElementById('main').onDblClick.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onDblClick.splice(index, 1);
+	},
+
+	addMouseDownEvent: function($callback)
+	{
+		if (document.getElementById('main').onMouseDown.indexOf($callback) < 0)
+			document.getElementById('main').onMouseDown.push($callback);
+	},
+
+	removeMouseDownEvent: function($callback)
+	{
+		var index = document.getElementById('main').onMouseDown.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onMouseDown.splice(index, 1);
+	},
+
+	addMouseMoveEvent: function($callback)
+	{
+		if (document.getElementById('main').onMouseMove.indexOf($callback) < 0)
+			document.getElementById('main').onMouseMove.push($callback);
+	},
+
+	removeMouseMoveEvent: function($callback)
+	{
+		var index = document.getElementById('main').onMouseMove.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onMouseMove.splice(index, 1);
+	},
+
+	addMouseUpEvent: function($callback)
+	{
+		if (document.getElementById('main').onMouseUp.indexOf($callback) < 0)
+			document.getElementById('main').onMouseUp.push($callback);
+	},
+
+	removeMouseUpEvent: function($callback)
+	{
+		var index = document.getElementById('main').onMouseUp.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onMouseUp.splice(index, 1);
+	},
+
+	addPointerDownEvent: function($callback)
+	{
+		if (document.getElementById('main').onPointerDown.indexOf($callback) < 0)
+			document.getElementById('main').onPointerDown.push($callback);
+	},
+
+	removePointerDownEvent: function($callback)
+	{
+		var index = document.getElementById('main').onPointerDown.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onPointerDown.splice(index, 1);
+	},
+
+	addPointerMoveEvent: function($callback)
+	{
+		if (document.getElementById('main').onPointerMove.indexOf($callback) < 0)
+			document.getElementById('main').onPointerMove.push($callback);
+	},
+
+	removePointerMoveEvent: function($callback)
+	{
+		var index = document.getElementById('main').onPointerMove.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onPointerMove.splice(index, 1);
+	},
+
+	addPointerUpEvent: function($callback)
+	{
+		if (document.getElementById('main').onPointerUp.indexOf($callback) < 0)
+			document.getElementById('main').onPointerUp.push($callback);
+	},
+
+	removePointerUpEvent: function($callback)
+	{
+		var index = document.getElementById('main').onPointerUp.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onPointerUp.splice(index, 1);
+	},
+
+	addDragEvent: function($callback)
+	{
+		if (document.getElementById('main').onDrag.indexOf($callback) < 0)
+			document.getElementById('main').onDrag.push($callback);
+	},
+
+	removeDragEvent: function($callback)
+	{
+		var index = document.getElementById('main').onDrag.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onDrag.splice(index, 1);
+	},
+
+	addDragStartEvent: function($callback)
+	{
+		if (document.getElementById('main').onDragStart.indexOf($callback) < 0)
+			document.getElementById('main').onDragStart.push($callback);
+	},
+
+	removeDragStartEvent: function($callback)
+	{
+		var index = document.getElementById('main').onDragStart.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onDragStart.splice(index, 1);
+	},
+
+	addDragEndEvent: function($callback)
+	{
+		if (document.getElementById('main').onDragEnd.indexOf($callback) < 0)
+			document.getElementById('main').onDragEnd.push($callback);
+	},
+
+	removeDragEndEvent: function($callback)
+	{
+		var index = document.getElementById('main').onDragEnd.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onDragEnd.splice(index, 1);
+	},
+
+	addDragOverEvent: function($callback)
+	{
+		if (document.getElementById('main').onDragOver.indexOf($callback) < 0)
+			document.getElementById('main').onDragOver.push($callback);
+	},
+
+	removeDragOverEvent: function($callback)
+	{
+		var index = document.getElementById('main').onDragOver.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onDragOver.splice(index, 1);
+	},
+
+	addDragEnterEvent: function($callback)
+	{
+		if (document.getElementById('main').onDragEnter.indexOf($callback) < 0)
+			document.getElementById('main').onDragEnter.push($callback);
+	},
+
+	removeDragEnterEvent: function($callback)
+	{
+		var index = document.getElementById('main').onDragEnter.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onDragEnter.splice(index, 1);
+	},
+
+	addDragLeaveEvent: function($callback)
+	{
+		if (document.getElementById('main').onDragLeave.indexOf($callback) < 0)
+			document.getElementById('main').onDragLeave.push($callback);
+	},
+
+	removeDragLeaveEvent: function($callback)
+	{
+		var index = document.getElementById('main').onDragLeave.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onDragLeave.splice(index, 1);
+	},
+
+	addDragExitEvent: function($callback)
+	{
+		if (document.getElementById('main').onDragExit.indexOf($callback) < 0)
+			document.getElementById('main').onDragExit.push($callback);
+	},
+
+	removeDragExitEvent: function($callback)
+	{
+		var index = document.getElementById('main').onDragExit.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onDragExit.splice(index, 1);
+	},
+
+	addDropEvent: function($callback)
+	{
+		if (document.getElementById('main').onDrop.indexOf($callback) < 0)
+			document.getElementById('main').onDrop.push($callback);
+	},
+
+	removeDropEvent: function($callback)
+	{
+		var index = document.getElementById('main').onDrop.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onDrop.splice(index, 1);
+	},
+
+	addContextMenuEvent: function($callback)
+	{
+		if (document.getElementById('main').onContextMenu.indexOf($callback) < 0)
+			document.getElementById('main').onContextMenu.push($callback);
+	},
+
+	removeContextMenuEvent: function($callback)
+	{
+		var index = document.getElementById('main').onContextMenu.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onContextMenu.splice(index, 1);
+	},
+
+	addMouseWheelEvent: function($callback)
+	{
+		if (document.getElementById('main').onMouseWheel.indexOf($callback) < 0)
+			document.getElementById('main').onMouseWheel.push($callback);
+	},
+
+	removeMouseWheelEvent: function($callback)
+	{
+		var index = document.getElementById('main').onMouseWheel.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onMouseWheel.splice(index, 1);
+	},
+
+	addGestureStartEvent: function($callback)
+	{
+		if (document.getElementById('main').onGestureStart.indexOf($callback) < 0)
+			document.getElementById('main').onGestureStart.push($callback);
+	},
+
+	removeGestureStartEvent: function($callback)
+	{
+		var index = document.getElementById('main').onGestureStart.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onGestureStart.splice(index, 1);
+	},
+
+	addGestureChangeEvent: function($callback)
+	{
+		if (document.getElementById('main').onGestureChange.indexOf($callback) < 0)
+			document.getElementById('main').onGestureChange.push($callback);
+	},
+
+	removeGestureChangeEvent: function($callback)
+	{
+		var index = document.getElementById('main').onGestureChange.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onGestureChange.splice(index, 1);
+	},
+
+	addGestureEndEvent: function($callback)
+	{
+		if (document.getElementById('main').onGestureEnd.indexOf($callback) < 0)
+			document.getElementById('main').onGestureEnd.push($callback);
+	},
+
+	removeGestureEndEvent: function($callback)
+	{
+		var index = document.getElementById('main').onGestureEnd.indexOf($callback);
+		
+		if (index >= 0)
+			document.getElementById('main').onGestureEnd.splice(index, 1);
+	},
+
+	addBlurEvent: function($callback)
+	{
+		if (window.onBlur.indexOf($callback) < 0)
+			window.onBlur.push($callback);
+	},
+
+	removeBlurEvent: function($callback)
+	{
+		var index = window.onBlur.indexOf($callback);
+		
+		if (index >= 0)
+			window.onBlur.splice(index, 1);
+	},
+
+	addFocusEvent: function($callback)
+	{
+		if (window.onFocus.indexOf($callback) < 0)
+			window.onFocus.push($callback);
+	},
+
+	removeFocusEvent: function($callback)
+	{
+		var index = window.onFocus.indexOf($callback);
+		
+		if (index >= 0)
+			window.onFocus.splice(index, 1);
 	},
 	
 	//////////////////////////////

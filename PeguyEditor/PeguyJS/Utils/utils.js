@@ -134,7 +134,7 @@ var utils =
         var scriptHTML = '<script type="text/javascript" >'
                             + 'var scriptToExec = function() { ' + code + '\n};\n '
                             + 'try { scriptToExec();\nutils.emptyExecCodeError(); }\n '
-                            + 'catch($error) { console.log("Coin coin"); utils.displayExecCodeError($error); }\n '
+                            + 'catch($error) { utils.displayExecCodeError($error); }\n '
                         + '</script>';
 
 		utils.scriptToExec = new Component(scriptHTML);

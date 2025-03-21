@@ -98,8 +98,8 @@ var dataManager =
 		
 		if (utils.isset($str) && utils.isset($str.replace))
 		{
-			encodedStr = $str.replace(/[\u00A0-\u9999<>\&]/g, function($char) { return '&#' + $char.charCodeAt(0) + ';'; });
-			encodedStr = encodedStr.replace(" ", "&#160;");
+			encodedStr = $str.replaceAll(/[\u00A0-\u9999<>\&]/g, function($char) { return '&#' + $char.charCodeAt(0) + ';'; });
+			encodedStr = encodedStr.replaceAll(" ", "&#160;");
 		}
 		
 		return encodedStr;

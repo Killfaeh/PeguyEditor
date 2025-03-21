@@ -793,6 +793,7 @@ function Loader($root, $style)
 		components['frame'] = new ComponentLoader('frame', root + 'PeguyJS/Graphics/Components/classic/Frame.js', root + 'PeguyJS/Graphics/Style/' + style + '/classic/frame.css');
 		components['invisibleFreezeScreen'] = new ComponentLoader('frame', root + 'PeguyJS/Graphics/Components/classic/InvisibleFreezeScreen.js', root + 'PeguyJS/Graphics/Style/' + style + '/classic/invisibleFreezeScreen.css');
 		components['dock'] = new ComponentLoader('dock', root + 'PeguyJS/Graphics/Components/' + mode + '/Dock.js', root + 'PeguyJS/Graphics/Style/' + style + '/' + mode + '/dock.css');
+		components['testCodePanel'] = new ComponentLoader('testCodePanel', root + 'PeguyJS/Graphics/Components/' + mode + '/TestCodePanel.js', root + 'PeguyJS/Graphics/Style/' + style + '/' + mode + '/testCodePanel.css');
 	}
 	
 	//////////////
