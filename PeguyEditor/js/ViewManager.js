@@ -1,5 +1,11 @@
 function ViewManager()
 {
+	// ajouter le système de plugin pour générer des structures de code (format simple : valeur par défeut du champ JSON, méthode de calcul de la chaîne de caractères)
+	// ajouter la liste des émoji à insérer en un clic
+	// enrichir mes bibliothèques de bloc de code standards
+	// outils de recherche, cherche et remplace
+	// un peu d’automatisation sur l’insertion de tabulations
+
 	///////////////
 	// Attributs //
 	///////////////
@@ -92,6 +98,8 @@ function ViewManager()
 		var docType = 'plaintext';
 
 		if (/\.py$/.test($filePath))
+			docType = 'python';
+		else if (/\.rpy$/.test($filePath))
 			docType = 'python';
 		else if (/\.xml$/.test($filePath))
 			docType = 'xml';
