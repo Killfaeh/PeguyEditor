@@ -7,6 +7,7 @@
 ////             https://www.facebook.com/suiseipark            ////
 ////////////////////////////////////////////////////////////////////
 
+var NB_GL_BUFFERS = 0;
 var COLLADA_MESH = {};
 
 function GLBuffer()
@@ -62,6 +63,7 @@ function GLBuffer()
 	{
 		if (init === false)
 		{
+			var drawMode = $context.STATIC_DRAW;
 			var tmpVertices = [];
 			var mvMatrix = $this.getMvMatrix();
 
@@ -90,13 +92,13 @@ function GLBuffer()
 			indexBuffer = $context.createBuffer();
 			
 			$context.bindBuffer($context.ARRAY_BUFFER, verticesBuffer);
-			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(tmpVertices), $context.STATIC_DRAW);
+			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(tmpVertices), drawMode);
 			
 			$context.bindBuffer($context.ARRAY_BUFFER, normalsBuffer);
-			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(normals), $context.STATIC_DRAW);
+			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(normals), drawMode);
 			
 			$context.bindBuffer($context.ARRAY_BUFFER, tangentsXBuffer);
-			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(tangentsX), $context.STATIC_DRAW);
+			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(tangentsX), drawMode);
 			
 			if (!utils.isset(textureTangentsX) || textureTangentsX.length !== tangentsX.length)
 			{
@@ -111,10 +113,10 @@ function GLBuffer()
 			}
 			
 			$context.bindBuffer($context.ARRAY_BUFFER, textureTangentsXBuffer);
-			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(textureTangentsX), $context.STATIC_DRAW);
+			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(textureTangentsX), drawMode);
 			
 			$context.bindBuffer($context.ARRAY_BUFFER, tangentsYBuffer);
-			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(tangentsY), $context.STATIC_DRAW);
+			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(tangentsY), drawMode);
 			
 			if (!utils.isset(textureTangentsY) || textureTangentsY.length !== tangentsY.length)
 			{
@@ -129,7 +131,7 @@ function GLBuffer()
 			}
 			
 			$context.bindBuffer($context.ARRAY_BUFFER, textureTangentsYBuffer);
-			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(textureTangentsY), $context.STATIC_DRAW);
+			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(textureTangentsY), drawMode);
 			
 			if (!utils.isset(textureTangentsZ) || textureTangentsZ.length !== tangentsY.length)
 			{
@@ -144,7 +146,7 @@ function GLBuffer()
 			}
 			
 			$context.bindBuffer($context.ARRAY_BUFFER, textureTangentsZBuffer);
-			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(textureTangentsZ), $context.STATIC_DRAW);
+			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(textureTangentsZ), drawMode);
 			
 			if (!utils.isset(colors) || colors.length !== 4*nbVertices)
 			{
@@ -155,13 +157,13 @@ function GLBuffer()
 			}
 			
 			$context.bindBuffer($context.ARRAY_BUFFER, colorsBuffer); 
-			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(colors), $context.STATIC_DRAW);
+			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(colors), drawMode);
 			
 			$context.bindBuffer($context.ARRAY_BUFFER, textureBuffer);
-			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(texture), $context.STATIC_DRAW);
+			$context.bufferData($context.ARRAY_BUFFER, new Float32Array(texture), drawMode);
 			
 			$context.bindBuffer($context.ELEMENT_ARRAY_BUFFER, indexBuffer); 
-			$context.bufferData($context.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), $context.STATIC_DRAW);
+			$context.bufferData($context.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), drawMode);
 			
 			if (findEdges === true)
 			{
@@ -194,6 +196,8 @@ function GLBuffer()
 	
 	this.render = function render($context) 
 	{
+		$context.disable($context.CULL_FACE);
+
 		if (outline === true && utils.isset(outlineClone))
 		{
 			//outlineClone.setX(glObject.getX() + outlineOffset[0]*outlineWidth);
@@ -1144,7 +1148,8 @@ function GLBuffer()
 	//////////////
 	// Héritage //
 	//////////////
-	
+
+	NB_GL_BUFFERS++;
 	var $this = utils.extend(glObject, this);
 	return $this;
 }
