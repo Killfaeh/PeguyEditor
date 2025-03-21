@@ -471,6 +471,8 @@ function NodesPanel($width, $height)
 		
 		return { x: (mousePosition.x - contentPosition.x - offsetX)/scale, y: (mousePosition.y - contentPosition.y - offsetY)/scale };
 	};
+
+	// Ajouter la récupération de toute la hiérarchie en JSON
 	
 	// SET
 	

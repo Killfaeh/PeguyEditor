@@ -58,6 +58,7 @@ function ColorPalette($colorsList)
 							$this.deselectAll();
 							selected = this;
 							this.parentNode.setAttribute('class', 'selected');
+							$this.onChange(this.getAttribute('value'));
 						};
 					}
 				}
@@ -66,10 +67,32 @@ function ColorPalette($colorsList)
 			}
 		}
 	};
+
+	this.selectByValue = function($value)
+	{
+		var cells = component.getElementsByTagName('td');
+
+		for (var i = 0; i < cells.length; i++)
+		{
+			var cell = cells[i];
+			var value = cell.getElementsByTagName('div')[0].getAttribute('value');
+
+			if (value === $value)
+			{
+				$this.deselectAll();
+				selected = cell.getElementsByTagName('div')[0];
+				cell.setAttribute('class', 'selected');
+				$this.onChange(value);
+				i = cells.length;
+			}
+		}
+	};
 	
 	///////////////////////////////////
 	// Initialisation des événements //
 	///////////////////////////////////
+
+	this.onChange = function($value) {};
 	
 	////////////////
 	// Accesseurs //

@@ -319,6 +319,9 @@ function Kanban($sorted)
 
 	this.getColumnsList = function() { return columnsList; };
 
+	// Ajouter une sortie de tout le kanban au format json
+	// Ajouter une entrée pour charger tout le kanban à partir d'un json
+
 	// SET
 	
 	this.setEditMode = function($editMode)

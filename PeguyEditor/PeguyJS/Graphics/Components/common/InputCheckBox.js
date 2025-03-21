@@ -48,6 +48,7 @@ function InputCheckBox($name, $label, $checked, $isHTML)
 	
 	component.getById('label').onClick = function() { onChange(); };
 	component.onClick = function() { onChange(); };
+	checkBox.onChange = function() { $this.onChange(checkBox.isChecked()); };
 	
 	////////////////
 	// Accesseurs //

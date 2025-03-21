@@ -31,6 +31,9 @@ function Canvas2D($width, $height)
 		for (var i = 0; i < objectsList.length; i++)
 			objectsList[i].render(context);
 	};
+
+	// Convert to SVG
+	// Create from SVG
 	
 	this.addObject = function($object)
 	{

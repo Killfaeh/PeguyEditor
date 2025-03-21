@@ -43,6 +43,7 @@ function Button($label)
 	{
 		label = $label;
 		labelToDisplay = dataManager.encodeHTMLEntities(label);
+		labelToDisplay = labelToDisplay.replaceAll("&#160;", " ");
 		$this.removeAllChildren();
 		$this.appendChild(utils.createText(labelToDisplay));
 	};

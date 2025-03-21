@@ -30,6 +30,8 @@ function IDIcon($firstname, $name, $img)
 	{
 		if (utils.isset(img))
 		{
+			component.getById('avatar').empty();
+			component.getById('avatar').appendChild(img);
 			component.getById('name').style.display = 'none';
 			component.getById('avatar').style.display = 'inline-block';
 		}
