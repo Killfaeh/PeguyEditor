@@ -413,7 +413,7 @@ function ViewManager()
 
 		pluginItem.onAction = async function()
 		{
-			var popup = new UsePluginPopup(this.plugin);
+			var popup = new UsePlugInPopup(this.plugin);
 			PEGUY.appendToScreen(popup);
 		};
 	};

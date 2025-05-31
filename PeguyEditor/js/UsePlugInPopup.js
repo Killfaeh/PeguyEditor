@@ -1,4 +1,4 @@
-function UsePluginPopup($plugin)
+function UsePlugInPopup($plugin)
 {
 	///////////////
 	// Attributs //
@@ -79,4 +79,4 @@ function UsePluginPopup($plugin)
 }
 
 if (Loader !== null && Loader !== undefined)
-	Loader.hasLoaded("usePluginPopup");
+	Loader.hasLoaded("usePlugInPopup");
