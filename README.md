@@ -67,13 +67,13 @@ Then, run PeguyEditor.bat as administrator.
 
 **Mac OS**
 
-If you run Péguy Editor for the first time, run Install.app (double clic). 
+If you run Péguy Editor for the first time, run Install.app (double clic). </br>
 Run PeguyEditor.app (double clic).</br>
 You can put PeguyEditor.app in your dock.
 
 **Linux**
 
-If you run Péguy Editor for the first time, run Install in a console. 
+If you run Péguy Editor for the first time, run Install in a console. </br>
 Run PeguyEditor in a console.
 
 ## How to use
