@@ -96,6 +96,8 @@ function CheckBoxList($name, $options, $nbColumns, $isHTML)
 		
 		return state;
 	};
+
+	this.getJSON = function() { return $this.getState(); };
 	
 	// SET
 	
@@ -134,6 +136,8 @@ function CheckBoxList($name, $options, $nbColumns, $isHTML)
 		for (var i = 0; i < inputCheckBoxList.length; i++)
 			inputCheckBoxList[i].setChecked($state[inputCheckBoxList[i].getName()]);
 	};
+
+	this.loadFromJSON = function($json) { $this.setState($json); };
 	
 	this.setEnable = function($enable)
 	{

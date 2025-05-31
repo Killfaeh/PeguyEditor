@@ -62,6 +62,7 @@ function LabelList()
 		component.removeAllChildren();
 		$this.onChange();
 	};
+	
 
 	/////////////////
 	// Init events //
@@ -77,9 +78,29 @@ function LabelList()
 
 	this.getLabelList = function() { return labelList; };
 
+	this.getJSON = function()
+	{
+		var jsonTable = [];
+
+		for (var i = 0; i < labelList.length; i++)
+			jsonTable.push(labelList[i].getJSON());
+
+		return jsonTable;
+	};
+
 	// SET
 
 	this.setLabelList = function($labelList) { labelList = $labelList; };
+
+	this.loadFromJSON = function($json)
+	{
+		for (var i = 0; i < $json.length; i++)
+		{
+			var label = new Label($json[i].label);
+			label.loadFromJSON($json[i]);
+			$this.addLabel(label);
+		}
+	};
 
 	////////////
 	// Extend //

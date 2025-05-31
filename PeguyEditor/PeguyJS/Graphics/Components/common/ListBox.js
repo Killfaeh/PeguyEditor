@@ -159,10 +159,30 @@ function ListBox()
 	
 	this.getElementsList = function() { return elementsList; };
 	this.isEditMode = function() { return editMode; };
+
+	this.getJSON = function()
+	{
+		var jsonTable = [];
+
+		for (var i = 0; i < elementsList.length; i++)
+			jsonTable.push(elementsList[i].getJSON());
+
+		return jsonTable;
+	};
 	
 	// SET
 	
 	this.setEditMode = function($editMode) { editMode = $editMode; };
+
+	this.loadFromJSON = function($json)
+	{
+		for (var i = 0; i < $json.length; i++)
+		{
+			var item = new ListItem($json[i].label);
+			item.loadFromJSON($json[i]);
+			$this.addElement(item);
+		}
+	};
 	
 	//////////////
 	// Héritage //

@@ -1,5 +1,4 @@
 #!/bin/bash
 BASEDIR=$(dirname $0)
 cd $BASEDIR
-npm install --save-dev electron
 npm start

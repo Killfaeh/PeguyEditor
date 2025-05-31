@@ -1105,6 +1105,23 @@ function Loader($root, $style)
 		else if (components[$name] !== null && components[$name] !== undefined)
 			components[$name].hasLoaded();
 	};
+
+	// Pour charger après coup une nouvelle image
+	this.useImg = function($url, $name, $onLoad)
+	{
+		if (images[$name] === null || images[$name] === undefined)
+			images[$name] = new ImgLoader($url, $name);
+		
+		images[$name].onload = $onLoad;
+		images[$name].load();
+	};
+	
+	// Pour ajouter une image après coup sans lancer le chargement immédiatement
+	this.addImg = function($url, $name)
+	{
+		if (images[$name] === null || images[$name] === undefined)
+			images[$name] = new ImgLoader($url, $name);
+	};
 	
 	// Pour charger après coup un nouveau fichier SVG
 	this.useSVG = function($url, $name, $onLoad)

@@ -389,9 +389,12 @@ function CodeEditor($language)
 				if (utils.isset(lastNode) && lastNode.nodeType !== Node.TEXT_NODE)
 					lastNode.appendChild(document.createTextNode('\n'));
 
-				$this.restoreCaret(true);
-				//$this.updateNumLines();
-				//$this.updateNumLinesScroll();
+				$this.restoreCaret(true);				
+			}
+			else
+			{
+				$this.updateNumLines();
+				$this.updateNumLinesScroll();
 			}
         }
     };

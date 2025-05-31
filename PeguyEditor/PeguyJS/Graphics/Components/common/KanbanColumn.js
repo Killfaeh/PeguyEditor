@@ -518,6 +518,16 @@ function KanbanColumn($label, $sorted)
 	// GET
 
 	this.getCardsList = function() { return cardsList; };
+
+	this.getJSON = function()
+	{
+		var jsonData  = { "label": label, "sorted": sorted, "editMode": editMode, "cardsList": [] };
+
+		for (var i = 0; i < cardsList.length; i++)
+			jsonData.cardsList.push(cardsList[i].getLabel());
+
+		return jsonData;
+	};
 	
 	//// Détecter si l'élement est survolé ////
 	
@@ -638,6 +648,16 @@ function KanbanColumn($label, $sorted)
 		
 		for (var i = 0; i < cardsList.length; i++)
 			cardsList[i].setEditMode(editMode);
+	};
+
+	this.loadFromJSON = function($json)
+	{
+		label = $json.label;
+		sorted = $json.sorted;
+		editMode = $json.editMode;
+
+		for (var i = 0; i < $json.cardsList.length; i++)
+			$this.addCard(new KanbanCard($json.cardsList[i], sorted));
 	};
 	
 	//////////////

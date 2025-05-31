@@ -23,6 +23,7 @@ var isNotSavedFiles = false;
 var recentFiles = { recentFiles: [] };
 var lastSession = { workspacePath: '', openFiles: [] };
 var codeLists = [];
+var plugIns = [];
 
 ///////////////
 // Fonctions //
@@ -106,6 +107,31 @@ async function loadCodeLists()
 	}
 }
 
+async function loadPlugIns()
+{
+	var files = fs.readdirSync('PlugIns');
+
+	for (var file of files)
+	{
+		if (/\.js$/.test(file))
+		{
+			var filepath = path.join('PlugIns', file);
+			plugIns.push(filepath);
+		}
+	}
+
+	files = fs.readdirSync(userHomeDir + '/Documents/Peguy/CodeEditor/PlugIns');
+
+	for (var file of files)
+	{
+		if (/\.js$/.test(file))
+		{
+			var filepath = path.join(userHomeDir + '/Documents/Peguy/CodeEditor/PlugIns', file);
+			plugIns.push(filepath);
+		}
+	}
+}
+
 var fileTypeIsOk = function($filePath)
 {
 	var isOK = false;
@@ -136,6 +162,7 @@ async function handleLoadSettingsInGUI()
 	console.log("Load settings");
 	mainWindow.webContents.executeJavaScript("viewManager.updateRecentFiles(" + JSON.stringify(recentFiles) + ");");
 	mainWindow.webContents.executeJavaScript("viewManager.updateCodeLists(" + JSON.stringify({ codeLists: codeLists }) + ");");
+	mainWindow.webContents.executeJavaScript("viewManager.updatePlugIns(" + JSON.stringify({ plugIns: plugIns }) + ");");
 	mainWindow.webContents.executeJavaScript("viewManager.loadLastSession(" + JSON.stringify(lastSession) + ");");
 }
 
@@ -345,6 +372,9 @@ if (!fs.existsSync(userHomeDir + '/Documents/Peguy/CodeEditor'))
 if (!fs.existsSync(userHomeDir + '/Documents/Peguy/CodeEditor/CodeLists'))
 	fs.mkdirSync(userHomeDir + '/Documents/Peguy/CodeEditor/CodeLists');
 
+if (!fs.existsSync(userHomeDir + '/Documents/Peguy/CodeEditor/PlugIns'))
+	fs.mkdirSync(userHomeDir + '/Documents/Peguy/CodeEditor/PlugIns');
+
 if (!fs.existsSync(userHomeDir + '/Documents/Peguy/CodeEditor/recentFiles.json'))
 	fs.writeFileSync(userHomeDir + '/Documents/Peguy/CodeEditor/recentFiles.json', JSON.stringify(recentFiles));
 else
@@ -362,6 +392,7 @@ else
 }
 
 loadCodeLists();
+loadPlugIns();
 
 // Fonction de création d'une fenêtre
 function createWindow ()

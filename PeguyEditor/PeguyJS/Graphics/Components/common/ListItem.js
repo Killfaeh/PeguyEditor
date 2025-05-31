@@ -333,10 +333,28 @@ function ListItem($label)
 	}
 	
 	this.isDragging = function() { return dragging; };
+
+	this.getLabel = function() { return label; };
+
+	this.getJSON = function()
+	{
+		var jsonData = { "label": label };
+		return jsonData;
+	};
 	
 	// SET
 	
+	this.setLabel = function($label)
+	{
+		label = $label;
+	};
+
 	this.setParent = function($parent) { parent = $parent; };
+
+	this.loadFromJSON = function($json)
+	{
+		label = $json.label;
+	};
 	
 	//////////////
 	// Héritage //

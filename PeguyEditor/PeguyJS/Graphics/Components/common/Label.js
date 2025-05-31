@@ -40,6 +40,12 @@ function Label($label)
 	this.getLabel = function() { return label; };
 	this.getParent = function() { return parent; };
 
+	this.getJSON = function()
+	{
+		var jsonData = { "label": label };
+		return jsonData;
+	};
+
 	// SET
 
 	this.setLabel = function($label)
@@ -48,6 +54,11 @@ function Label($label)
 	};
 	
 	this.setParent = function($parent) { parent = $parent; };
+
+	this.loadFromJSON = function($json)
+	{
+		label = $json.label;
+	};
 
 	////////////
 	// Extend //

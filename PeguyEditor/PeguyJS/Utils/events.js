@@ -213,6 +213,128 @@ var Events =
 		if (keys.indexOf($event.keyCode) < 0)
 			$callback($event);
 	},
+
+	/////////////////////////
+	//// Manettes de jeu ////
+	/////////////////////////
+
+	// https://alvaromontoro.com/blog/68044/playing-with-the-gamepad-api
+
+	gamepadsDelay: 25,
+	gamepadsTimer: null,
+
+	gamepadsPressTable: {},
+	gamepadsLastPressTable: {},
+
+	getGamepads: function()
+	{
+		var rawData = navigator.getGamepads ? navigator.getGamepads() : navigator.webkitGetGamepads ? navigator.webkitGetGamepads() : [];
+		var gamepads = [];
+
+		for (var i = 0; i < rawData.length; i++)
+		{
+			if (utils.isset(rawData[i]))
+			{
+				//console.log("Index : " + rawData[i].index);
+				gamepads.push(rawData[i]);
+			}
+		}
+
+		return gamepads;
+	},
+
+	initGamepadLoop: function()
+	{
+		var gamepads = Events.getGamepads();
+
+		if (gamepads.length > 0)
+		{
+			console.log(gamepads);
+			Events.gamepadsTimer = setInterval(Events.gamepadsLoop, Events.gamepadsDelay);
+		}
+	},
+
+	gamepadsLoop: function()
+	{
+		var gamepads = Events.getGamepads();
+
+		for (var i = 0; i < gamepads.length; i++)
+		{
+			var gamepad = gamepads[i];
+
+			for (var j = 0; j < gamepad.buttons.length; j++)
+			{
+				var button = gamepad.buttons[j];
+
+				if (button.pressed === true)
+				{
+					if (!utils.isset(Events.gamepadsPressTable[gamepad.index]['buttons'][j]) || Events.gamepadsPressTable[gamepad.index]['buttons'][j] !== true)
+					{
+						Events.gamepadsPressTable[gamepad.index]['buttons'][j] = true;
+						Events.gamepadsLastPressTable[gamepad.index]['buttons'][j] = new Date();
+						Components.onGamepadButtonDown({ buttonCode: j });
+					}
+				}
+				else
+				{
+					if (utils.isset(Events.gamepadsPressTable[gamepad.index]['buttons'][j]) && Events.gamepadsPressTable[gamepad.index]['buttons'][j] === true)
+					{
+						Events.gamepadsPressTable[gamepad.index]['buttons'][j] = false;
+						Components.onGamepadButtonUp({ buttonCode: j });
+					}
+				}
+			}
+
+			for (var j = 0; j < gamepad.axes.length; j++)
+			{
+				var axe = gamepad.axes[j];
+
+				if (!utils.isset(Events.gamepadsPressTable[gamepad.index]['axis'][j]) || Events.gamepadsPressTable[gamepad.index]['axis'][j] !== axe)
+				{
+					Events.gamepadsPressTable[gamepad.index]['axis'][j] = axe;
+					Events.gamepadsLastPressTable[gamepad.index]['axis'][j] = new Date();
+					Components.onGamepadAxisChange({ axisCode: j, value: axe });
+				}
+			}
+		}
+	},
+
+	gamepadConnect: function($event)
+	{
+		console.log($event);
+		// Gestion des gamepads
+
+		Events.gamepadsPressTable[$event.gamepad.index] = { 'buttons': {}, 'axis': {} };
+		Events.gamepadsLastPressTable[$event.gamepad.index] = { 'buttons': {}, 'axis': {} };
+
+		var gamepads = Events.getGamepads();
+
+		if (!utils.isset(Events.gamepadsTimer) && gamepads.length > 0)
+			Events.gamepadsTimer = setInterval(Events.gamepadsLoop, Events.gamepadsDelay);
+
+		Components.onGamepadConnected($event);
+	},
+
+	gamepadDisconnect: function($event)
+	{
+		console.log($event);
+		// Gestion des gamepads
+
+		Events.gamepadsPressTable[$event.gamepad.index] = null;
+		Events.gamepadsLastPressTable[$event.gamepad.index] = null;
+		
+		var gamepads = Events.getGamepads();
+
+		if (gamepads.length <= 0)
+		{
+			clearInterval(Events.gamepadsTimer);
+			Events.gamepadsTimer = null;
+			Events.gamepadsPressTable = {};
+			Events.gamepadsLastPressTable = {};
+		}
+
+		Components.onGamepadDisconnected($event);
+	},
 	
 	/////////////////////////////
 	//// Evénements tactiles ////
@@ -442,11 +564,15 @@ var Events =
 			Events.updateMouse($event);
 			Events.catchEvent('PointerUp', $event);
 		});
+
+		window.addEventListener("gamepadconnected", function ($event) { Events.gamepadConnect($event); });
+		window.addEventListener("gamepaddisconnected", function ($event) { Events.gamepadDisconnect($event); });
+		Events.initGamepadLoop();
 		
 		if (mode === 'classic')
 		{
-			document.getElementById('main').addEvent('keydown', Events.onKeyDown);
-			document.getElementById('main').addEvent('keyup', Events.onKeyUp);
+			document.getElementById('main').addEvent('keydown', function($event) { Events.onKeyDown($event); });
+			document.getElementById('main').addEvent('keyup', function($event) { Events.onKeyUp($event); });
 			document.getElementById('main').addEvent('click', function($event) { Events.catchEvent('Click', $event); });
 			document.getElementById('main').addEvent('dblclick', function($event) { Events.catchEvent('DblClick', $event); });
 			//document.getElementById('main').addEvent('mouseover', function($event) { Events.catchEvent('MouseOver', $event); });

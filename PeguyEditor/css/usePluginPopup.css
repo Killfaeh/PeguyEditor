@@ -1,0 +1,51 @@
+.usePluginPopup .popupContent
+{
+	position: absolute;
+	left: 100px;
+	right: 100px;
+	top: 100px;
+	bottom: 100px;
+}
+
+.usePluginPopup .popupContent h2
+{
+	position: absolute;
+	left: 30px;
+	right: 30px;
+	top: 30px;
+	text-align: center;
+}
+
+.usePluginPopup .popupContent .input, .usePluginPopup .popupContent .output
+{
+	position: absolute;
+	top: 70px;
+	bottom: 70px;
+}
+
+.usePluginPopup .popupContent .input
+{
+	left: 20px;
+	right: calc(50% + 7px);
+	resize: none;
+}
+
+.usePluginPopup .popupContent .output
+{
+	padding: 20px;
+	right: 20px;
+	left: calc(50% + 7px);
+	top: 60px;
+	bottom: 60px;
+	border: rgb(128,128,128) solid 1px;
+	text-align: left;
+	overflow: auto;
+}
+
+.usePluginPopup .popupContent .confirmButtons
+{
+	position: absolute;
+	left: 30px;
+	right: 30px;
+	bottom: 15px;
+}

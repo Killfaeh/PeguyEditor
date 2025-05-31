@@ -282,7 +282,48 @@ var Components =
 	{
 		if (Components.focusList.length > 0)
 			Components.focusList[Components.focusList.length-1].onKeyUp($event);
-	}
+	},
+
+	onGamepadConnected: function($event)
+	{
+		console.log('Connect gamepad');
+
+		if (Components.focusList.length > 0)
+			Components.focusList[Components.focusList.length-1].onGamepadConnected($event);
+	},
+
+	onGamepadDisconnected: function($event)
+	{
+		console.log('Disconnect gamepad');
+
+		if (Components.focusList.length > 0)
+			Components.focusList[Components.focusList.length-1].onGamepadDisconnected($event);
+	},
+
+	onGamepadButtonDown: function($event)
+	{
+		console.log('BUTTON DOWN: ' + $event.buttonCode);
+
+		if (Components.focusList.length > 0)
+			Components.focusList[Components.focusList.length-1].onGamepadButtonDown($event);
+	},
+
+	onGamepadButtonUp: function($event)
+	{
+		console.log('BUTTON UP: ' + $event.buttonCode);
+
+		if (Components.focusList.length > 0)
+			Components.focusList[Components.focusList.length-1].onGamepadButtonUp($event);
+	},
+
+	onGamepadAxisChange: function($event)
+	{
+		//console.log('AXIS CHANGE: ' + $event.axisCode + ', ' + $event.value);
+		// Va de -1 à 1
+
+		if (Components.focusList.length > 0)
+			Components.focusList[Components.focusList.length-1].onGamepadAxisChange($event);
+	},
 };
 
 if (Loader !== null && Loader !== undefined)

@@ -1036,7 +1036,9 @@ function ContentEditable()
 			{
 				if (mode === 'text' || !isThereCodeOrQuoteTag)
 				{
-					var contextMenu = ContextMenu(component.getById('font-size').position().x, component.getById('font-size').position().y + component.getById('font-size').offsetHeight);
+					var buttonPosition = component.getById('font-size').position();
+
+					var contextMenu = ContextMenu(buttonPosition.x, buttonPosition.y + component.getById('font-size').offsetHeight);
 				
 					for (var i = 0; i < sizes.length; i++)
 					{
@@ -1114,7 +1116,9 @@ function ContentEditable()
 			{
 				if (mode === 'text' || !isThereCodeOrQuoteTag)
 				{
-					var contextMenu = ContextMenu(component.getById('title').position().x, component.getById('title').position().y + component.getById('title').offsetHeight);
+					var buttonPosition = component.getById('title').position();
+
+					var contextMenu = new ContextMenu(buttonPosition.x, buttonPosition.y + component.getById('title').offsetHeight);
 				
 					for (var i = 0; i < titles.length; i++)
 					{
@@ -1213,7 +1217,9 @@ function ContentEditable()
 				{
 					if (mode === 'text' || !isThereCodeOrQuoteTag)
 					{
-						var contextPalette = ContextPalette(component.getById('text-color').position().x, component.getById('text-color').position().y + component.getById('text-color').offsetHeight, colorsList);
+						var buttonPosition = component.getById('text-color').position();
+
+						var contextPalette = new ContextPalette(buttonPosition.x, buttonPosition.y + component.getById('text-color').offsetHeight, colorsList);
 						
 						contextPalette.onAction = function($color)
 						{
@@ -1236,7 +1242,7 @@ function ContentEditable()
 			}
 			else
 			{
-				var colorPopup = SelectColorPopup(null);
+				var colorPopup = new SelectColorPopup(null);
 				
 				colorPopup.onCancel = function() { $this.restoreSelection(selection); };
 				
@@ -1343,7 +1349,9 @@ function ContentEditable()
 			{
 				if (mode === 'text' || !isThereCodeOrQuoteTag)
 				{
-					var contextMenu = ContextMenu(component.getById('font').position().x, component.getById('font').position().y + component.getById('font').offsetHeight);
+					var buttonPosition = component.getById('font').position();
+
+					var contextMenu = new ContextMenu(buttonPosition.x, buttonPosition.y + component.getById('font').offsetHeight);
 				
 					for (var i = 0; i < fonts.length; i++)
 					{
@@ -1454,7 +1462,9 @@ function ContentEditable()
 				}
 				else
 				{
-					var contextMenu = ContextMenu(component.getById('code').position().x, component.getById('code').position().y + component.getById('code').offsetHeight);
+					var buttonPosition = component.getById('code').position();
+
+					var contextMenu = new ContextMenu(buttonPosition.x, buttonPosition.y + component.getById('code').offsetHeight);
 			
 					for (var i = 0; i < options.length; i++)
 					{
@@ -2568,8 +2578,12 @@ function ContentEditable()
 		for (var i = 0; i < colorsList.length; i++)
 		{
 			if (/^rgb/.test(colorsList[i]))
+			{
 				colorsList[i] = colorsList[i].replace(/ /gi, '');
-				//colorsList[i] = colorsList[i].replaceAll(' ', '');
+				var rgb = colorsList[i].match(/^rgb\(([0-9]{1,3}),([0-9]{1,3}),([0-9]{1,3})\)$/);
+				colorsList[i] = '#' + Colors.rgbToHex(rgb[1], rgb[2], rgb[3]);
+				console.log(colorsList[i]);
+			}
 		}
 	};
 	

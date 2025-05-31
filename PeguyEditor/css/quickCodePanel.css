@@ -12,7 +12,7 @@
 
 .quickCodePanel .topPanel
 {
-	top: 10px;
+	top: 0px;
 	bottom: calc(50% + 7px);
 	bottom: calc(100% - 29px);
 	/*padding: 10px;*/

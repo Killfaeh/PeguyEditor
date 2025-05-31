@@ -13,7 +13,6 @@ var Debug =
 	callstack: function()
 	{
 		var stack = (new Error()).stack.replace(/\n/gi, '<br />');
-		//console.log(stack);
 		
 		if (utils.isset(Debug.console))
 			Debug.console.log(stack);

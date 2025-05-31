@@ -11,7 +11,7 @@ function NodesGroup($label, $x, $y, $nodesList)
 						+ '<g id="nodesGroup" ></g>'
 					+ '</g>';
 	
-	var panel = Component(panelCode);
+	var panel = new Component(panelCode);
 	
 	var nodeItem = new NodeItem($label, $x, $y);
 	

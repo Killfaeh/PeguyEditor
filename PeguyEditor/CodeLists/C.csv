@@ -1,0 +1,65 @@
+label:keywords:code
+Base template:base, template, skeleton:"#include <stdio.h>
+#include <stdlib.h>
+#include ""myLib.h""
+
+int main(int argc, char *argv[])
+{
+	printf(""Hello world!\n""); 
+	return 0;
+}"
+For loop:loop, for, block:"int n = 10;
+int i;
+
+for (i = 0; i < n; i++)
+{
+	// Do something
+}"
+Double for loop:loop, for, block:"int n = 10;
+int m = 10;
+int i;
+int j;
+
+for (i = 0; i < n; i++)
+{
+	for (j = 0; j < m; j++)
+	{
+		// Do something
+	}
+}"
+While loop:loop, while, block:"while (/* Condition */)
+{
+	// Do something
+}"
+Do while loop:loop, do, while, block:"int n = 10;
+int i = 0;
+
+do
+{
+	// Do something
+	i++;
+} while (i < n);"
+If block:if, block:"if (/* Condition 1 */)
+{
+	// Do something
+}
+else if (/* Condition 2 */)
+{
+	// Do something
+}
+else
+{
+	// Do something
+}"
+Switch block:switch, block:"switch (condition)
+{
+	case 1:
+		// Do something
+		break;
+	case 2:
+		// Do something
+		break;
+	default:
+		// Do something
+		break;
+}"

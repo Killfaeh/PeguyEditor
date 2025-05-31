@@ -527,6 +527,11 @@ function Component($html)
 	this.onEndResize = function() {};
 	this.onKeyDown = function($event) {};
 	this.onKeyUp = function($event) {};
+	this.onGamepadConnected = function($event) {};
+	this.onGamepadDisconnected = function($event) {};
+	this.onGamepadButtonDown = function($event) {};
+	this.onGamepadButtonUp = function($event) {};
+	this.onGamepadAxisChange = function($event) {};
 	this.onRemove = function() {};
 	this.onFocus = function() {};
 	this.onBlur = function() {};
@@ -542,9 +547,12 @@ function Component($html)
 	// GET
 	this.getId = function() { return id; };
 	this.getHtml = function() { return html; };
+	this.getJSON = function() { return {}; };
 
 	// SET
 	
+	this.loadFromJSON = function($json) {};
+
 	if (typeof html === "string")
 	{
 		xml = dataManager.StringToXML('<?xml version="1.0" encoding="UTF-8"?>' + html);

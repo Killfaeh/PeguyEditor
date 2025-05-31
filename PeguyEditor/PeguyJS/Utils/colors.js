@@ -310,20 +310,12 @@ var Colors =
 		
 		return hsv;
 	},
-	
+
 	// Convertir une valeur R, G ou B en hexadécimales
 	decToHex: function($n)
 	{
-		var hexCode = $n.toString(16);
-
-		if ($n === 0)
-			hexCode = '00';
-		else if ($n < 15)
-			hexCode = '0' + hexCode;
-		
-		hexCode = hexCode.toUpperCase();
-
-		return hexCode;
+		var hex = parseInt($n).toString(16);
+  		return hex.length == 1 ? "0" + hex : hex;
 	}, 
 	
 	// Convertir le RGB en Hex

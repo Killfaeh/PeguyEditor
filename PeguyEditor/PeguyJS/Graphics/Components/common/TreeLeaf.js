@@ -393,6 +393,12 @@ function TreeLeaf($html)
 	
 	this.isDragging = function() { return dragging; };
 
+	this.getJSON = function()
+	{
+		var jsonData = { "type": "leaf", "label": $html };
+		return jsonData;
+	};
+
 	// SET
 	
 	this.setEditMode = function($editMode) { editMode = $editMode; };

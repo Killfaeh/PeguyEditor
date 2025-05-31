@@ -29,6 +29,10 @@ function ViewManager()
 
 	var menuBarItemEdit = new MenuItem("Edit");
 
+	// Insert
+
+	var menuBarItemInsert = new MenuItem("Insert");
+
 	//// Grille ////
 
 	var appGrid = new AppGrid();
@@ -77,6 +81,10 @@ function ViewManager()
 		// Edit
 
 		//menuBar.addElement(menuBarItemEdit);
+
+		// Insert
+
+		menuBar.addElement(menuBarItemInsert);
 
 		//// Tab manager ////
 
@@ -129,6 +137,8 @@ function ViewManager()
 			docType = 'javascript';
 		else if (/\.sql$/.test($filePath))
 			docType = 'sql';
+		else if (/\.bas$/.test($filePath))
+			docType = 'basic';
 
 		return docType;
 	};
@@ -382,6 +392,30 @@ function ViewManager()
 			resourcesTabManager.addTab(new Tab('<span>' + $codeLists.codeLists[i].name + '</span>', new QuickCodePanel($codeLists.codeLists[i].name, $codeLists.codeLists[i].list)));
 
 		resourcesTabManager.getTabList()[0].select();
+	};
+
+	this.updatePlugIns = function($plugIns)
+	{
+		menuBarItemInsert.removeAllElements();
+
+		for (var i = 0; i < $plugIns.plugIns.length; i++)
+		{
+			var script = utils.create("script", { "type": "text/javascript", "src": $plugIns.plugIns[i] });
+			document.getElementById('main').appendChild(script);
+		}
+	};
+
+	this.addPlugInToMenu = function($plugin)
+	{
+		var pluginItem = new MenuItem($plugin.getName());
+		menuBarItemInsert.addElement(pluginItem);
+		pluginItem.plugin = $plugin;
+
+		pluginItem.onAction = async function()
+		{
+			var popup = new UsePluginPopup(this.plugin);
+			PEGUY.appendToScreen(popup);
+		};
 	};
 
 	this.updateSavedStatus = function($saved)

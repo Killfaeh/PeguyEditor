@@ -328,6 +328,16 @@ function Tree($ordered)
 	this.getElementsList = this.getBranches;
     this.getSelectedElement = function() { return selectedElement; };
 
+	this.getJSON = function()
+	{
+		var jsonData = { "type": "tree", "ordered": ordered, "elementsList": [] };
+
+		for (var i = 0; i < elementsList.length; i++)
+			jsonData.elementsList.push(elementsList[i].getJSON());
+
+		return jsonData;
+	};
+
 	// SET
 	
 	this.setEditMode = function($editMode)
@@ -341,6 +351,23 @@ function Tree($ordered)
 		
 		for (var i = 0; i < elementsList.length; i++)
 			elementsList[i].setEditMode(editMode);
+	};
+
+	this.loadFromJSON = function($json)
+	{
+		ordered = $json.ordered;
+
+		for (var i = 0; i < $json.elementsList.length; i++)
+		{
+			var item = new TreeLeaf(json.elementsList[i].label);
+
+			if ($json.type === "branch")
+				item = new TreeBranch(json.elementsList[i].label, ordered);
+
+			item.loadFromJSON($json.elementsList[i]);
+			$this.deselectAll();
+			$this.addElement(item);
+		}
 	};
 
 	//////////////

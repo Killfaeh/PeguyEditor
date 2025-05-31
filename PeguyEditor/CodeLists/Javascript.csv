@@ -32,6 +32,70 @@ Create function with parameters:function:"var myFunction = function($param)
 }"
 Create regex:regex:"var myRegex = new RegExp(""[a-z]"");
 var matchMyRegex = inputStr.match(myRegex);"
+Ondrop event:drop, ondrop, files, events:"myNode.ondrop = function($event)
+{
+	// Do something
+};
+
+myNode.ondragover = preventDefault;"
+Get dropped files:drop, ondrop, files:"var accept = ['text/html'];
+var dropped = [];
+var accepted = [];
+var ready = [];
+
+var onReady = function($callback)
+{
+	if (ready.length >= accepted.length)
+		$callback(ready);
+};
+
+var loadFile = function($event, $callback)
+{
+	preventDefault($event);
+
+	dropped = [];
+	accepted = [];
+	ready = [];
+
+	var effectAllowed = $event.dataTransfer.effectAllowed;
+
+	if (effectAllowed === ""all"")
+	{
+		dropped = $event.dataTransfer.files;
+		
+		for (var i = 0; i < dropped.length; i++)
+		{
+			if (accept.length <= 0 || accept.indexOf(dropped[i].type) >= 0)
+				accepted.push(dropped[i]);
+		}
+
+		for (var i = 0; i < accepted.length; i++)
+		{
+			var file = accepted[i];
+
+			var reader = new FileReader();
+			reader.name = file.name;
+			reader.type = file.type;
+			reader.path = file.path;
+			
+			reader.onload = function ($event)
+			{
+				var fileData = $event.target.result;
+				var fileName = this.name;
+				var fileType = this.type;
+				var filePath = this.path;
+				
+				ready.push({ name: fileName, path: filePath, type: fileType, data: fileData });
+				onReady($callback);
+			};
+			
+			if (/^image/.test(file.type) || /^application\/pdf/.test(file.type))
+				reader.readAsDataURL(file);
+			else if (/^text/.test(file.type) || file.type === 'application/json')
+				reader.readAsText(file);
+		}
+	}
+};"
 Get scroll position:events, scroll:"var scrollX = element.scrollLeft;
 var scrollY = element.scrollTop;"
 Get scroll size:events, scroll:"var scrollWidth = element.scrollWidth;

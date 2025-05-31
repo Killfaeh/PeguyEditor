@@ -319,6 +319,21 @@ function Kanban($sorted)
 
 	this.getColumnsList = function() { return columnsList; };
 
+	this.getJSON = function()
+	{
+		var jsonData =
+		{
+			"sorted": sorted,
+			"editMode": editMode,
+			"columnsList": []
+		};
+
+		for (var i = 0; i < columnsList.length; i++)
+			jsonData.columnsList.push(columnsList[i].getJSON());
+
+		return jsonData;
+	};
+
 	// Ajouter une sortie de tout le kanban au format json
 	// Ajouter une entrée pour charger tout le kanban à partir d'un json
 
@@ -341,6 +356,19 @@ function Kanban($sorted)
 		
 		for (var i = 0; i < columnsList.length; i++)
 			columnsList[i].setEditMode(editMode);
+	};
+
+	this.loadFromJSON = function($json)
+	{
+		label = $json.label;
+		sorted = $json.sorted;
+
+		for (var i = 0; i < $json.columnsList.length; i++)
+		{
+			var column = new KanbanColumn($json.columnsList[i].label, sorted);
+			column.loadFromJSON($json.columnsList[i]);
+			$this.addColumn(column);
+		}
 	};
 	
 	//////////////

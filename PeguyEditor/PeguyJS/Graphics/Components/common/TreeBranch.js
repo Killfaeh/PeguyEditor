@@ -633,6 +633,16 @@ function TreeBranch($html, $ordered)
 	
 	this.isDragging = function() { return dragging; };
 
+	this.getJSON = function()
+	{
+		var jsonData = { "type": "branch", "ordered": ordered, "deploy": deploy, "label": $html, "elementsList": [] };
+
+		for (var i = 0; i < elementsList.length; i++)
+			jsonData.elementsList.push(elementsList[i].getJSON());
+
+		return jsonData;
+	};
+
 	// SET
 	
 	this.setEditMode = function($editMode)
@@ -644,6 +654,24 @@ function TreeBranch($html, $ordered)
 	};
 	
 	this.setParentBranch = function($parentBranch) { parentBranch = $parentBranch; };
+
+	this.loadFromJSON = function($json)
+	{
+		ordered = $json.ordered;
+		deploy = $json.deploy;
+
+		for (var i = 0; i < $json.elementsList.length; i++)
+		{
+			var item = new TreeLeaf(json.elementsList[i].label);
+
+			if ($json.type === "branch")
+				item = new TreeBranch(json.elementsList[i].label, ordered);
+
+			item.loadFromJSON($json.elementsList[i]);
+			$this.select();
+			$this.addElement(item);
+		}
+	};
 
 	//////////////
 	// Héritage //

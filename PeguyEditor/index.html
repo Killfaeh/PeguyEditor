@@ -98,10 +98,12 @@
 
 			Loader.addScript('js/ViewManager.js?token=' + Loader.getToken(), 'viewManager');
 			Loader.addScript('js/Document.js?token=' + Loader.getToken(), 'document');
+			Loader.addScript('js/PlugIn.js?token=' + Loader.getToken(), 'plugin');
 			
 			Loader.addComponent('css/appGrid.css', 'js/AppGrid.js', 'appGrid');
 			Loader.addComponent('css/quickCodePanel.css', 'js/QuickCodePanel.js', 'quickCodePanel');
 			Loader.addComponent('css/workspacePanel.css', 'js/WorkspacePanel.js', 'workspacePanel');
+			Loader.addComponent('css/usePluginPopup.css', 'js/UsePluginPopup.js', 'usePluginPopup');
 			
 			// Redéfinir la fonction this.onload
 			Loader.onload = function()
