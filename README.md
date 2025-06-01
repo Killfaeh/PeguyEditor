@@ -49,7 +49,7 @@ sudo apt install npm
 
 ### Download and extract the archive
 
-Download the project archive via this Google Drive link : [https://drive.google.com/file/d/1IcmtSef5rtiPxGoZiPn2VkBB8ih3g6Of/view?usp=sharing](https://drive.google.com/file/d/1IcmtSef5rtiPxGoZiPn2VkBB8ih3g6Of/view?usp=sharing)</br>
+Download the project archive via this Google Drive link : [https://drive.google.com/file/d/1UO-mdqd2G_nVNChe4YB_l1vnxXvac2ci/view?usp=sharing](https://drive.google.com/file/d/1UO-mdqd2G_nVNChe4YB_l1vnxXvac2ci/view?usp=sharing)</br>
 Then, extract it.
 
 <div align="center">
@@ -61,17 +61,19 @@ Archive content
 
 **Windows**
 
-If you run Péguy Editor for the first time, run install.bat (double click). 
+If you run Péguy Editor for the first time, run install.bat as administrator. 
 A DOS console appears, with a small rotating bar in the top left corner, then disappears when installation is complete.</br>
-Then, run PeguyEditor.bat (double click).
+Then, run PeguyEditor.bat as administrator.
 
 **Mac OS**
 
-Run PeguyEditor.app (double click).</br>
+If you run Péguy Editor for the first time, run Install.app (double clic). </br>
+Run PeguyEditor.app (double clic).</br>
 You can put PeguyEditor.app in your dock.
 
 **Linux**
 
+If you run Péguy Editor for the first time, run Install in a console. </br>
 Run PeguyEditor in a console.
 
 ## How to use
