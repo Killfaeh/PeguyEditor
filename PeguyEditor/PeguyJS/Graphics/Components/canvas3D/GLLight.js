@@ -39,14 +39,14 @@ function GLLight()
 	this.getColor = function() { return color; };
 	this.getGreyScale = function() { return (color[0] + color[1] + color[2])/3.0; };
 	this.getPosition = function() { return position; };
-	this.getDirection = function() { return Math.normalizeVector(direction); };
+	this.getDirection = function() { return (new Vector(direction)).normalize().values(); };
 	this.getLimit = function() { return limit; };
 	
 	// SET 
 	this.setType = function($type) { type = $type; };
 	this.setColor = function($color) { color = $color; };
 	this.setPosition = function($position) { position = $position; };
-	this.setDirection = function($direction) { direction = Math.normalizeVector($direction); };
+	this.setDirection = function($direction) { direction = (new Vector($direction)).normalize().values(); };
 	this.setLimit = function($limit) { limit = $limit; };
 }
 

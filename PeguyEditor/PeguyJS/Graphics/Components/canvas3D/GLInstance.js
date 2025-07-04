@@ -277,11 +277,11 @@ function GLInstance($object)
 			var x = normals[i*3];
 			var y = normals[i*3+1];
 			var z = normals[i*3+2];
-			var outputVector = nMvMatrix.multiplyVect([x, y, z, 1.0]);
-			outputVector = Math.normalizeVector(outputVector);
-			tmpNormals.push(outputVector[0]);
-			tmpNormals.push(outputVector[1]);
-			tmpNormals.push(outputVector[2]);
+			var outputVector = new Vector(nMvMatrix.multiplyVect([x, y, z, 1.0]));
+			outputVector = outputVector.normalize();
+			tmpNormals.push(outputVector.values()[0]);
+			tmpNormals.push(outputVector.values()[1]);
+			tmpNormals.push(outputVector.values()[2]);
 		}
 
 		return tmpNormals;

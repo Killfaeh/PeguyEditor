@@ -7,20 +7,21 @@
 ////             https://www.facebook.com/suiseipark            ////
 ////////////////////////////////////////////////////////////////////
 
-function GLPolygon($verticesList, $center, $axis)
+function GLPolygon($verticesList, $axis, $center)
 {
 	///////////////
 	// Attributs //
 	///////////////
 
+	var glBuffer = new GLBuffer();
+
+	var verticesList = $verticesList;
+
 	var axis = $axis;
 
 	if (axis !== 'x' && axis !== 'y' && axis !== 'z')
 		axis = 'z';
-	
-	var glBuffer = new GLBuffer();
-	
-	var verticesList = $verticesList;
+
 	var center = $center;
 
 	if (!utils.isset(center) || center !== true)
@@ -32,18 +33,11 @@ function GLPolygon($verticesList, $center, $axis)
 
 	var init = function()
 	{
+		var polygon = new MathPolygon(verticesList);
+
 		// Calcul du barycentre du polygon
 			
-		var centroid = { x: 0.0, y: 0.0 };
-			
-		for (var i = 0; i < verticesList.length; i++)
-		{
-			centroid.x = centroid.x + verticesList[i].x;
-			centroid.y = centroid.y + verticesList[i].y;
-		}
-		
-		centroid.x = centroid.x/verticesList.length;
-		centroid.y = centroid.y/verticesList.length;
+		var centroid = polygon.getCentroid();
 		
 		// Déplacement des points pour placer le barycentre sur l'origine
 		
@@ -51,8 +45,8 @@ function GLPolygon($verticesList, $center, $axis)
 		{
 			for (var i = 0; i < verticesList.length; i++)
 			{
-				verticesList[i].x = verticesList[i].x - centroid.x;
-				verticesList[i].y = verticesList[i].y - centroid.y;
+				verticesList[i].setX(verticesList[i].x - centroid.x);
+				verticesList[i].setY(verticesList[i].y - centroid.y);
 			}
 		}
 		
@@ -72,7 +66,6 @@ function GLPolygon($verticesList, $center, $axis)
 		
 		// Calcul des points des normales et tout...
 		
-		var polygon = new MathPolygon(verticesList);
 		var polygonTriangles = polygon.getIndices();
 		
 		var vertices = [];
@@ -105,12 +98,12 @@ function GLPolygon($verticesList, $center, $axis)
 			}
 			else if (axis === 'y')
 			{
-				vertices.push(verticesList[i].y);
-				vertices.push(0.0);
 				vertices.push(verticesList[i].x);
+				vertices.push(0.0);
+				vertices.push(verticesList[i].y);
 
 				normals.push(0.0);
-				normals.push(1.0);
+				normals.push(-1.0);
 				normals.push(0.0);
 
 				tangentsX.push(0.0);

@@ -6,6 +6,7 @@ var PEGUY =
 	language: navigator.language || navigator.userLanguage,
 	userAgent: navigator.userAgent,
 	platform: navigator.platform,
+	glPrecision: 7,
 
 	appendToMain: function($node)
 	{

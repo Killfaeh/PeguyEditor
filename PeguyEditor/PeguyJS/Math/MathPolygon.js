@@ -14,13 +14,22 @@ function MathPolygon($verticesList)
 	///////////////
 	
 	var verticesList = $verticesList;
+
+	if (!utils.isset(verticesList))
+		verticesList = [];
+
+	for (var i = 0; i < verticesList.length; i++)
+	{
+		if (Array.isArray(verticesList[i]) || !utils.isset(verticesList[i].type) || verticesList[i].type !== 'Vector')
+			verticesList[i] = new Vector(verticesList[i]);
+	}
 	
 	var concave = false;
 	var polygonDeterminant = 0.0;
 	var polygonOrientation = 0.0;
 	var triangulationVertices = [];
 	var triangulationIndices = [];
-	var centroid = { x: 0.0, y: 0.0 };
+	var centroid = new Vector([0.0, 0.0]);
 	
 	//////////////
 	// Méthodes //
@@ -102,7 +111,7 @@ function MathPolygon($verticesList)
 			var vertexJ = verticesList[j];
 			var vertexK = verticesList[k];
 			
-			var determinant = Math.verticesDeterminant2D(vertexI, vertexJ, vertexK);
+			var determinant = Vectors.pointsDeterminant2D(vertexI, vertexJ, vertexK);
 
 			//console.log("Determinant : " + determinant);
 			
@@ -184,7 +193,7 @@ function MathPolygon($verticesList)
 				var vertexNext = verticesStack[nextI];
 
 				var valid = true;
-				var determinant = Math.verticesDeterminant2D(vertexPrev, vertex, vertexNext);
+				var determinant = Vectors.pointsDeterminant2D(vertexPrev, vertex, vertexNext);
 
 				//console.log("Determinant : " + determinant + ', ' + polygonDeterminant + ', ' + (determinant*polygonDeterminant) + ', ' + concave);
 
@@ -193,8 +202,8 @@ function MathPolygon($verticesList)
 
 				if (valid)
 				{
-					var angle1 = Math.arctan(vertex.y-vertexPrev.y, vertex.x-vertexPrev.x);
-					var angle2 = Math.arctan(vertexNext.y-vertex.y, vertexNext.x-vertex.x);
+					var angle1 = Trigo.atan(vertex.y-vertexPrev.y, vertex.x-vertexPrev.x);
+					var angle2 = Trigo.atan(vertexNext.y-vertex.y, vertexNext.x-vertex.x);
 					var angle = Math.abs(angle2 - angle1);
 
 					if (isNaN(angle))
@@ -210,7 +219,7 @@ function MathPolygon($verticesList)
 						{
 							if (j !== i && j !== prevI && j !== nextI)
 							{
-								vertexInTriangle = Math.vertexInTriangle(verticesStack[j], [vertexPrev, vertex, vertexNext]);
+								vertexInTriangle = Vectors.pointInTriangle(verticesStack[j], [vertexPrev, vertex, vertexNext]);
 
 								if (vertexInTriangle === true)
 									j = verticesStack.length;
@@ -289,16 +298,16 @@ function MathPolygon($verticesList)
 
 	this.updateCentroid = function()
 	{
-		centroid = { x: 0.0, y: 0.0 };
+		centroid = new Vector([0.0, 0.0]);
 			
 		for (var i = 0; i < verticesList.length; i++)
 		{
-			centroid.x = centroid.x + verticesList[i].x;
-			centroid.y = centroid.y + verticesList[i].y;
+			centroid.setX(centroid.x + verticesList[i].x);
+			centroid.setY(centroid.y + verticesList[i].y);
 		}
 		
-		centroid.x = centroid.x/verticesList.length;
-		centroid.y = centroid.y/verticesList.length;
+		centroid.setX(centroid.x/verticesList.length);
+		centroid.setY(centroid.y/verticesList.length);
 
 		return centroid;
 	};

@@ -307,11 +307,15 @@ function Canvas3DEditor($width, $height, $param)
 
 		var cursorPosition = oldCamera.getReverseMatrix().multiplyVect([localX, localY, localZ, 1.0]);
 		
-		var xLine = Math.getAffineEquation(oldCamera.getX(), oldCamera.getZ(), cursorPosition[0], cursorPosition[2]);
-		var yLine = Math.getAffineEquation(oldCamera.getY(), oldCamera.getZ(), cursorPosition[1], cursorPosition[2]);
-		var xSection = Math.getAffinePoint(xLine.a, xLine.b, 0, oldTargetVertex[2]);
-		var ySection = Math.getAffinePoint(yLine.a, yLine.b, 0, oldTargetVertex[2]);
-		var section = [xSection.x, ySection.x, oldTargetVertex[2]];
+		var xLine = new LinearFunction();
+		xLine.coefFromPoints([oldCamera.getX(), oldCamera.getZ()], [cursorPosition[0], cursorPosition[2]]);
+		var yLine = new LinearFunction();
+		yLine.coefFromPoints([oldCamera.getY(), oldCamera.getZ()], [cursorPosition[1], cursorPosition[2]]);
+
+		var xSection = Polynomials.linearIntersection(xLine, new LinearFunction(0, oldTargetVertex[2]));
+		var ySection = Polynomials.linearIntersection(yLine, new LinearFunction(0, oldTargetVertex[2]));
+		
+		var section = [xSection[0], ySection[0], oldTargetVertex[2]];
 		
 		return section;
 	};

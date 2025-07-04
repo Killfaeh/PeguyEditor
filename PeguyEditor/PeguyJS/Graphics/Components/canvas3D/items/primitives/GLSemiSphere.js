@@ -26,7 +26,7 @@ function GLSemiSphere($radius, $height, $angleTheta, $thetaResolution, $phiResol
 	var fill = $fill;
 	var closeBottom = $closeBottom;
 	
-	var phi = 2.0*Math.arctan(height, radius);
+	var phi = 2.0*Trigo.atan(height, radius);
 	var R = Math.sqrt(radius*radius + height*height)/2.0/Math.sin(phi/2.0);
 	
 	//////////////
@@ -62,15 +62,9 @@ function GLSemiSphere($radius, $height, $angleTheta, $thetaResolution, $phiResol
 					var cosTheta = Math.cos(thetaStep*j);
 					var sinTheta = Math.sin(thetaStep*j);
 					
-					var normal =
-					{
-						x: cosTheta*cosPhi,
-						y: sinTheta*cosPhi,
-						z: sinPhi
-					};
-					
-					var tangentX = Math.normalizeVector(Math.crossProduct(normal, { x: 0.0, y: -1.0, z: 0.0 }));
-					var tangentY = Math.normalizeVector(Math.crossProduct(normal, tangentX));
+					var normal = new Vector([cosTheta*cosPhi, sinTheta*cosPhi, sinPhi]);
+					var tangentX = Vectors.crossProduct(normal, new Vector([0.0, -1.0, 0.0 ])).normalize();
+					var tangentY = Vectors.crossProduct(normal, tangentX).normalize();
 					
 					normals.push(normal.x);
 					normals.push(normal.y);

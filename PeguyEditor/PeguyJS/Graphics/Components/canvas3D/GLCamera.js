@@ -87,10 +87,10 @@ function GLCamera()
 	
 	this.getPolar = function($offsetX, $offsetY, $offsetZ)
 	{
-		var thetaRad = Math.arctan(y - $offsetY, x - $offsetX);
+		var thetaRad = Trigo.atan(y - $offsetY, x - $offsetX);
 		var polarTheta = thetaRad/Math.PI*180.0;
 		var distanceXY = Math.sqrt((x - $offsetX)*(x - $offsetX) + (y - $offsetY)*(y - $offsetY));
-		var phiRad = Math.arctan(z - $offsetZ, x - distanceXY);
+		var phiRad = Trigo.atan(z - $offsetZ, x - distanceXY);
 		var polarPhi = phiRad/Math.PI*180.0;
 		var distance = Math.sqrt((x - $offsetX)*(x - $offsetX) + (y - $offsetY)*(y - $offsetY) + (z - $offsetZ)*(z - $offsetZ));
 		

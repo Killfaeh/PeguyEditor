@@ -1,13 +1,4 @@
-
-////////////////////////////////////////////////////////////////////
-//// Developed by Suisei aka Killfaeh aka Amandine Hachin, 2021 ////
-////                  http://suiseipark.com/                    ////
-////              http://suiseipark.blogspot.fr/                ////
-////                http://killfaeh.tumblr.com/                 ////
-////             https://www.facebook.com/suiseipark            ////
-////////////////////////////////////////////////////////////////////
-
-function GLPrismFromPolygon($radius1, $radius2, $height, $deltaX, $deltaY, $verticesList, $heightResolution, $bottomClosed, $topClosed, $textureMode, $axis)
+function GLPrismFromCurve($radius1, $radius2, $width, $height, $deltaX, $deltaY, $verticesList, $heightResolution, $bottomClosed, $topClosed, $textureMode, $axis, $cornerMode, $cornerAngle, $cornerResolution)
 {
 	///////////////
 	// Attributs //
@@ -17,15 +8,19 @@ function GLPrismFromPolygon($radius1, $radius2, $height, $deltaX, $deltaY, $vert
 
 	if (axis !== 'x' && axis !== 'y' && axis !== 'z')
 		axis = 'z';
-	
+
 	var glBuffer = new GLBuffer();
 	
 	var radius1 = $radius1;
 	var radius2 = $radius2;
+	var width = Math.abs($width);
 	var height = $height;
 	var deltaX = $deltaX;
 	var deltaY = $deltaY;
 	var verticesList = $verticesList;
+	var cornerMode = $cornerMode;
+	var cornerAngle = $cornerAngle;
+	var cornerResolution = $cornerResolution;
 	var heightResolution = $heightResolution;
 	var bottomClosed = $bottomClosed;
 	var topClosed = $topClosed;
@@ -39,15 +34,19 @@ function GLPrismFromPolygon($radius1, $radius2, $height, $deltaX, $deltaY, $vert
 	// 5 : Une texture pour le cylindre une par couvercle (texture en 3 parties) sur un tour complet
 	
 	if (utils.isset($textureMode))
-		textureMode = $textureMode;
-	
+		textureMode = $textureMode;	
+
 	//////////////
 	// Méthodes //
 	//////////////
 	
 	var init = function()
 	{
-		var prismData = GLData.createPrismFromPolygonData(radius1, radius2, height, deltaX, deltaY, verticesList, heightResolution, axis);
+		var ribbon1 = GLRibbonFromCurve(verticesList, width, axis, cornerMode, cornerAngle, cornerResolution);
+		var ribbon2 = ribbon1.clone();
+		var polygonVertices = ribbon1.getPolygonVertices();
+
+		var prismData = GLData.createPrismFromPolygonData(radius1, radius2, height, deltaX, deltaY, polygonVertices, heightResolution, axis);
 
 		glBuffer.setVertices(prismData.vertices);
 		glBuffer.setNormals(prismData.normals);
@@ -57,7 +56,7 @@ function GLPrismFromPolygon($radius1, $radius2, $height, $deltaX, $deltaY, $vert
 		glBuffer.setColors(prismData.colors);
 		glBuffer.setIndices(prismData.indices);
 
-		var polygon = new MathPolygon($verticesList);
+		var polygon = new MathPolygon(polygonVertices);
 		var maxRadius = polygon.getMaxRadius();
 		
 		var scale1 = 1.0;
@@ -71,62 +70,59 @@ function GLPrismFromPolygon($radius1, $radius2, $height, $deltaX, $deltaY, $vert
 
 		if (bottomClosed === true)
 		{
-			var polygon1 = new GLPolygon($verticesList, axis, false);
-			polygon1.setScale(scale1);
+			ribbon1.setScale(scale1);
 
 			if (axis === 'x')
 			{
-				polygon1.setX(-height/2.0);
-				polygon1.setY(-deltaX/2.0);
-				polygon1.setZ(-deltaY/2.0);
+				ribbon1.setX(-height/2.0);
+				ribbon1.setY(-deltaX/2.0);
+				ribbon1.setZ(-deltaY/2.0);
 			}
 			else if (axis === 'y')
 			{
-				polygon1.setX(-deltaY/2.0);
-				polygon1.setY(-height/2.0);
-				polygon1.setZ(-deltaX/2.0);
+				ribbon1.setX(-deltaY/2.0);
+				ribbon1.setY(-height/2.0);
+				ribbon1.setZ(-deltaX/2.0);
 			}
 			else
 			{
-				polygon1.setX(-deltaX/2.0);
-				polygon1.setY(-deltaY/2.0);
-				polygon1.setZ(-height/2.0);
+				ribbon1.setX(-deltaX/2.0);
+				ribbon1.setY(-deltaY/2.0);
+				ribbon1.setZ(-height/2.0);
 			}
 
-			polygon1.reverseNormals();
-			glBuffer = glBuffer.fuse(polygon1);
+			//ribbon1.reverseNormals();
+			glBuffer = glBuffer.fuse(ribbon1);
 		}
 
 		if (topClosed === true)
 		{
-			var polygon2 = new GLPolygon($verticesList, axis, false);
-			polygon2.setScale(scale2);
+			ribbon2.setScale(scale2);
 
 			if (axis === 'x')
 			{
-				polygon2.setX(height/2.0);
-				polygon2.setY(deltaX/2.0);
-				polygon2.setZ(deltaY/2.0);
+				ribbon2.setX(height/2.0);
+				ribbon2.setY(deltaX/2.0);
+				ribbon2.setZ(deltaY/2.0);
 			}
 			else if (axis === 'y')
 			{
-				polygon2.setX(deltaY/2.0);
-				polygon2.setY(height/2.0);
-				polygon2.setZ(deltaX/2.0);
+				ribbon2.setX(deltaY/2.0);
+				ribbon2.setY(height/2.0);
+				ribbon2.setZ(deltaX/2.0);
 			}
 			else
 			{
-				polygon2.setX(deltaX/2.0);
-				polygon2.setY(deltaY/2.0);
-				polygon2.setZ(height/2.0);
+				ribbon2.setX(deltaX/2.0);
+				ribbon2.setY(deltaY/2.0);
+				ribbon2.setZ(height/2.0);
 			}
 
-			glBuffer = glBuffer.fuse(polygon2);
+			ribbon2.reverseNormals();
+			glBuffer = glBuffer.fuse(ribbon2);
 		}
 	};
 
-	//this.init = function() { init(); };
-	
 	////////////////
 	// Accesseurs //
 	////////////////
@@ -138,11 +134,11 @@ function GLPrismFromPolygon($radius1, $radius2, $height, $deltaX, $deltaY, $vert
 	//////////////
 	// Héritage //
 	//////////////
-	
+
 	init();
 	var $this = utils.extend(glBuffer, this);
 	return $this;
 }
 
 if (Loader !== null && Loader !== undefined)
-	Loader.hasLoaded("gl-prism-from-polygon");
+	Loader.hasLoaded("gl-prism-from-curve");

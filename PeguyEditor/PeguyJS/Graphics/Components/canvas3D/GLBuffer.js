@@ -378,7 +378,7 @@ function GLBuffer()
 				for (var i = 0; i < tmpNormals.length; i++)
 				{
 					var normal1 = tmpNormals[i];
-					var dot = Math.dotProduct({x: normalMean[0], y: normalMean[1], z: normalMean[2]}, {x: normal1[0], y: normal1[1], z: normal1[2]});
+					var dot = Vectors.dotProduct(new Vector([normalMean[0], normalMean[1], normalMean[2]]), new Vector([normal1[0], normal1[1], normal1[2]]));
 					dots.push(dot);
 				}
 
@@ -391,14 +391,6 @@ function GLBuffer()
 
 				if (dotMean > 0.0 && dotMean < 0.99999999999999)
 					globalMoveVertex = [globalMoveVertex[0]*dotMean, globalMoveVertex[1]*dotMean, globalMoveVertex[2]*dotMean];
-				/*
-				else if (dotMean === 0.0 && dots.length === 1)
-				{
-					var newDelta = Math.sqrt(2*$delta*$delta);
-					globalMoveVertex = Math.normalizeVector({ x: globalMoveVertex[0], y: globalMoveVertex[1], z: globalMoveVertex[2] });
-					globalMoveVertex = [globalMoveVertex.x*newDelta, globalMoveVertex.y*newDelta, globalMoveVertex.z*newDelta];
-				}
-				//*/
 				else
 					globalMoveVertex = [normalMean[0]*$delta, normalMean[1]*$delta, normalMean[2]*$delta];
 					//globalMoveVertex = [globalMoveVertex[0]/indicesList.length, globalMoveVertex[1]/indicesList.length, globalMoveVertex[2]/indicesList.length];
@@ -490,7 +482,8 @@ function GLBuffer()
 		outputBuffer.setScaleY(1.0);
 		outputBuffer.setScaleZ(1.0);
 
-		if (!utils.isset($objects.length))
+		//if (!utils.isset($objects.length))
+		if (!Array.isArray($objects))
 			$objects = [$objects];
 		
 		for (var i = 0; i < $objects.length; i++)
@@ -583,11 +576,11 @@ function GLBuffer()
 			var x = normals[i*3];
 			var y = normals[i*3+1];
 			var z = normals[i*3+2];
-			var outputVector = nMvMatrix.multiplyVect([x, y, z, 1.0]);
-			outputVector = Math.normalizeVector(outputVector);
-			tmpNormals.push(outputVector[0]);
-			tmpNormals.push(outputVector[1]);
-			tmpNormals.push(outputVector[2]);
+			var outputVector = new Vector(nMvMatrix.multiplyVect([x, y, z, 1.0]));
+			outputVector = outputVector.normalize();
+			tmpNormals.push(outputVector.values()[0]);
+			tmpNormals.push(outputVector.values()[1]);
+			tmpNormals.push(outputVector.values()[2]);
 		}
 
 		return tmpNormals;

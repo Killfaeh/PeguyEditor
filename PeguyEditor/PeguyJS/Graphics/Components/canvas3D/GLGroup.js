@@ -202,11 +202,11 @@ function GLGroup()
 				var x = normals[j*3];
 				var y = normals[j*3+1];
 				var z = normals[j*3+2];
-				var outputVector = nMvMatrix.multiplyVect([x, y, z, 1.0]);
-				outputVector = Math.normalizeVector(outputVector);
-				rawData.vn.push(outputVector[0]);
-				rawData.vn.push(outputVector[1]);
-				rawData.vn.push(outputVector[2]);
+				var outputVector = new Vector(nMvMatrix.multiplyVect([x, y, z, 1.0]));
+				outputVector = outputVector.normalize();
+				rawData.vn.push(outputVector.values()[0]);
+				rawData.vn.push(outputVector.values()[1]);
+				rawData.vn.push(outputVector.values()[2]);
 			}
 
 			for (var j = 0; j < instanceRawData.vt.length; j++)

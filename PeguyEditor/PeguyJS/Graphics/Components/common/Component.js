@@ -576,8 +576,20 @@ function Component($html)
 
 			var point = node.getPointAtLength($t*totalLength);
 
-			var $tPrev = $t*totalLength-1;
-			var $tNext = $t*totalLength+1;
+			return [point.x, point.y, 0.0];
+		};
+
+		this.tangentAtLength = function($t)
+		{
+			var totalLength = $this.totalLength();
+
+			if ($t < 0.0)
+				$t = 0.0;
+			else if ($t > 1.0)
+				$t = 1.0;
+
+			var $tPrev = $t*totalLength-PEGUY.glPrecision;
+			var $tNext = $t*totalLength+PEGUY.glPrecision;
 			
 			if ($tPrev < 0.0)
 				$tPrev = 0.0;
@@ -593,40 +605,15 @@ function Component($html)
 			var pointNext = node.getPointAtLength($tNext);
 			
 			var deltaVect = [pointNext.x-pointPrev.x, pointNext.y-pointPrev.y];
-			var polar = Math.toPolar(deltaVect[0], deltaVect[1]);
+			var polar = Trigo.polar(deltaVect[0], deltaVect[1]);
 
-			//return [point.x, point.y, polar.theta/Math.PI*180.0];
-			return [point.x, point.y, 0.0];
-		};
-
-		this.tangentAtLength = function($t)
-		{
-			if ($t < 0.0)
-				$t = 0.0;
-			else if ($t > 1.0)
-				$t = 1.0;
-			
-			var point = $this.pointAtLength($t);
-			var radAngle = point[2]/180.0*Math.PI;
-			var x = Math.cos(radAngle);
-			var y = Math.sin(radAngle);
-
-			return [x, y, 0.0];
+			return [deltaVect[0]/polar.r, deltaVect[1]/polar.r, 0.0];
 		};
 
 		this.normalAtLength = function($t)
 		{
-			if ($t < 0.0)
-				$t = 0.0;
-			else if ($t > 1.0)
-				$t = 1.0;
-			
-			var point = $this.pointAtLength($t);
-			var radAngle = point[2]/180.0*Math.PI;
-			var x = Math.sin(radAngle);
-			var y = -Math.cos(radAngle);
-
-			return [x, y, 0.0];
+			var tangent = node.tangentAtLength($t);
+			return [tangent[1], -tangent[0], 0.0];
 		};
 
 		this.samplePoints = function($n, $edges)
@@ -675,7 +662,7 @@ function Component($html)
 					var t = i/(n-1);
 					var point = $this.pointAtLength(t);
 					var tangent = $this.tangentAtLength(t);
-					var normal = $this.normalAtLength(t);
+					var normal = [tangent[1], -tangent[0], 0.0];
 					var data = { point: point, tangent: tangent, normal: normal, smooth: true};
 					pointsList.push(data);
 				}

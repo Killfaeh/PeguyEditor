@@ -793,6 +793,8 @@ function CodeEditor($language)
 		$this.saveSelection();
 		$this.onChange();
 	};
+
+	this.onPaste = function($text) { return $text; };
 	
 	var onPaste = function($event)
 	{
@@ -807,7 +809,7 @@ function CodeEditor($language)
 		
 		if (!utils.isset(dataToPaste) || dataToPaste === '')
 		{
-			var textPlain = dataManager.encodeHTMLEntities(clipboardData.getData('text/plain')).replace(/&/g, '&');
+			var textPlain = dataManager.encodeHTMLEntities($this.onPaste(clipboardData.getData('text/plain'))).replace(/&/g, '&');
 			//console.log("Texte pur : " + textPlain);
 			dataToPaste = textPlain;
 		}

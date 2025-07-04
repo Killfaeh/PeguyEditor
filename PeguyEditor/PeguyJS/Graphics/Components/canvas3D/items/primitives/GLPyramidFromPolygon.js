@@ -18,7 +18,7 @@ function GLPyramidFromPolygon($radius, $height, $deltaX, $deltaY, $verticesList,
 	if (axis !== 'x' && axis !== 'y' && axis !== 'z')
 		axis = 'z';
 	
-	var prism = new GLPrismFromPolygon($radius, 0.0000001, $height, $deltaX, $deltaY, $verticesList, $heightResolution, $bottomClosed, false, $textureMode, axis);
+	var prism = new GLPrismFromPolygon($radius, Math.pow(10, -PEGUY.glPrecision), $height, $deltaX, $deltaY, $verticesList, $heightResolution, $bottomClosed, false, $textureMode, axis);
 	
 	////////////////
 	// Accesseurs //

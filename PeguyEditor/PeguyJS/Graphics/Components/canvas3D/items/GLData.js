@@ -302,9 +302,9 @@ GLData =
 				vertices.push(y);
 				vertices.push(z);
 
-				var tangentX = { x: -Math.sin(j*stepAngle), y: Math.cos(j*stepAngle), z: 0.0 };
-				var tangentY = Math.normalizeVector({ x: xBis - x, y: yBis - y, z: zBis - z });
-				var normal = Math.normalizeVector(Math.crossProduct(tangentX, tangentY));
+				var tangentX = new Vector([-Math.sin(j*stepAngle), Math.cos(j*stepAngle), 0.0]);
+				var tangentY = (new Vector([xBis - x, yBis - y, zBis - z])).normalize();
+				var normal = Vectors.crossProduct(tangentX, tangentY).normalize();
 
 				var textureX = j/thetaResolution;
 				
@@ -580,9 +580,9 @@ GLData =
 				vertices.push(y2);
 				vertices.push(z);
 
-				var tangentX = Math.normalizeVector({ x: x2 - x1, y: y2 - y1, z: 0.0 });
-				var tangentY = Math.normalizeVector({ x: (x1Bis + x2Bis - x1 - x2)/2.0, y: (y1Bis + y2Bis - y1 - y2)/2.0, z: zBis - z });
-				var normal = Math.normalizeVector(Math.crossProduct(tangentX, tangentY));
+				var tangentX = (new Vector([x2 - x1, y2 - y1, 0.0])).normalize();
+				var tangentY = (new Vector([(x1Bis + x2Bis - x1 - x2)/2.0, (y1Bis + y2Bis - y1 - y2)/2.0, zBis - z])).normalize();
+				var normal = Vectors.crossProduct(tangentX, tangentY).normalize();
 
 				var textureX1 = j/thetaResolution;
 				var textureX2 = (j+1)/thetaResolution;
@@ -791,8 +791,8 @@ GLData =
 
 		var polygon = new MathPolygon($verticesList);
 		var centroid = polygon.getCentroid();
-		centroid.x = 0.0;
-		centroid.y = 0.0;
+		centroid.setX(0.0);
+		centroid.setY(0.0);
 		var maxRadius = polygon.getMaxRadius();
 		
 		var scale1 = 1.0;
@@ -801,7 +801,7 @@ GLData =
 		if (utils.isset(radius1))
 			scale1 = radius1/maxRadius;
 
-		if (utils.isset(radius1))
+		if (utils.isset(radius2))
 			scale2 = radius2/maxRadius;
 
 		var vertices = [];
@@ -858,9 +858,9 @@ GLData =
 				{
 					displayedVertices++;
 
-					var tangentX = Math.normalizeVector({ x: x2 - x1, y: y2 - y1, z: 0.0 });
-					var tangentY = Math.normalizeVector({ x: (x1Bis + x2Bis - x1 - x2)/2.0, y: (y1Bis + y2Bis - y1 - y2)/2.0, z: zBis - z });
-					var normal = Math.normalizeVector(Math.crossProduct(tangentX, tangentY));
+					var tangentX = (new Vector([x2 - x1, y2 - y1, 0.0])).normalize();
+					var tangentY = (new Vector([(x1Bis + x2Bis - x1 - x2)/2.0, (y1Bis + y2Bis - y1 - y2)/2.0, zBis - z])).normalize();
+					var normal = Vectors.crossProduct(tangentX, tangentY).normalize();
 
 					var textureX1 = j/verticesList.length;
 					var textureX2 = (nextJ)/verticesList.length;
@@ -909,33 +909,33 @@ GLData =
 					}
 					else if (axis === 'y')
 					{
-						vertices.push(y1);
-						vertices.push(z);
 						vertices.push(x1);
-						vertices.push(y2);
 						vertices.push(z);
+						vertices.push(y1);
 						vertices.push(x2);
+						vertices.push(z);
+						vertices.push(y2);
 
-						normals.push(normal.y);
-						normals.push(normal.z);
-						normals.push(normal.x);
-						normals.push(normal.y);
-						normals.push(normal.z);
-						normals.push(normal.x);
+						normals.push(-normal.x);
+						normals.push(-normal.z);
+						normals.push(-normal.y);
+						normals.push(-normal.x);
+						normals.push(-normal.z);
+						normals.push(-normal.y);
 
-						tangentsX.push(tangentX.y);
-						tangentsX.push(tangentX.z);
 						tangentsX.push(tangentX.x);
-						tangentsX.push(tangentX.y);
 						tangentsX.push(tangentX.z);
+						tangentsX.push(tangentX.y);
 						tangentsX.push(tangentX.x);
+						tangentsX.push(tangentX.z);
+						tangentsX.push(tangentX.y);
 
-						tangentsY.push(tangentY.y);
-						tangentsY.push(tangentY.z);
 						tangentsY.push(tangentY.x);
-						tangentsY.push(tangentY.y);
 						tangentsY.push(tangentY.z);
+						tangentsY.push(tangentY.y);
 						tangentsY.push(tangentY.x);
+						tangentsY.push(tangentY.z);
+						tangentsY.push(tangentY.y);
 					}
 					else
 					{
@@ -1382,7 +1382,7 @@ GLData =
 					var theta = Math.PI/2.0;
 					
 					if (cube.x !== 0.0)
-						theta = Math.arctan(cube.y, cube.x);
+						theta = Trigo.atan(cube.y, cube.x);
 					else if (k === 0)
 						theta = -Math.PI/2.0;
 					else if ((k === 4 || k === 5) && cube.y < 0)
@@ -1391,7 +1391,7 @@ GLData =
 					var phi = Math.PI/2.0;
 					
 					if (r !== 0.0)
-						phi = Math.arctan(cube.z, r);
+						phi = Trigo.atan(cube.z, r);
 					else if (k === 5)
 						phi = -Math.PI/2.0;
 					

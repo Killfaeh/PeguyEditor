@@ -899,13 +899,16 @@ function Loader($root, $style)
 		if (additionnalModules.indexOf('math') >= 0)
 		{
 			scripts['math'] = new ScriptLoader(root + 'PeguyJS/Math/Math.js', 'math');
-			scripts['matrix'] = new ScriptLoader(root + 'PeguyJS/Math/Matrix.js', 'matrix');
-			scripts['orthoMatrix'] = new ScriptLoader(root + 'PeguyJS/Math/OrthoMatrix.js', 'orthoMatrix');
-			scripts['perspectiveMatrix'] = new ScriptLoader(root + 'PeguyJS/Math/PerspectiveMatrix.js', 'perspectiveMatrix');
+			scripts['polynomial'] = new ScriptLoader(root + 'PeguyJS/Math/Polynomial.js', 'polynomial');
+			scripts['trigo'] = new ScriptLoader(root + 'PeguyJS/Math/Trigo.js', 'trigo');
+			scripts['vectors'] = new ScriptLoader(root + 'PeguyJS/Math/Vectors.js', 'vectors');
 			scripts['math-polygon'] = new ScriptLoader(root + 'PeguyJS/Math/MathPolygon.js', 'math-polygon');
-			scripts['rotateMatrix'] = new ScriptLoader(root + 'PeguyJS/Math/RotateMatrix.js', 'rotateMatrix');
-			scripts['scaleMatrix'] = new ScriptLoader(root + 'PeguyJS/Math/ScaleMatrix.js', 'scaleMatrix');
-			scripts['translateMatrix'] = new ScriptLoader(root + 'PeguyJS/Math/TranslateMatrix.js', 'translateMatrix');
+			scripts['matrix'] = new ScriptLoader(root + 'PeguyJS/Math/Matrix/Matrix.js', 'matrix');
+			scripts['orthoMatrix'] = new ScriptLoader(root + 'PeguyJS/Math/Matrix/OrthoMatrix.js', 'orthoMatrix');
+			scripts['perspectiveMatrix'] = new ScriptLoader(root + 'PeguyJS/Math/Matrix/PerspectiveMatrix.js', 'perspectiveMatrix');
+			scripts['rotateMatrix'] = new ScriptLoader(root + 'PeguyJS/Math/Matrix/RotateMatrix.js', 'rotateMatrix');
+			scripts['scaleMatrix'] = new ScriptLoader(root + 'PeguyJS/Math/Matrix/ScaleMatrix.js', 'scaleMatrix');
+			scripts['translateMatrix'] = new ScriptLoader(root + 'PeguyJS/Math/Matrix/TranslateMatrix.js', 'translateMatrix');
 		}
 		
 		// Module chart
@@ -987,6 +990,8 @@ function Loader($root, $style)
 			scripts['gl-ring'] = new ScriptLoader(root + 'PeguyJS/Graphics/Components/canvas3D/items/primitives/GLRing.js', 'gl-ring');
 			scripts['gl-uv-ellipsoid'] = new ScriptLoader(root + 'PeguyJS/Graphics/Components/canvas3D/items/primitives/GLUVEllipsoid.js', 'gl-uv-ellipsoid');
 			scripts['gl-uv-sphere'] = new ScriptLoader(root + 'PeguyJS/Graphics/Components/canvas3D/items/primitives/GLUVSphere.js', 'gl-uv-sphere');
+			scripts['gl-ribbon-from-curve'] = new ScriptLoader(root + 'PeguyJS/Graphics/Components/canvas3D/items/primitives/GLRibbonFromCurve.js', 'gl-ribbon-from-curve');
+			scripts['gl-prism-from-curve'] = new ScriptLoader(root + 'PeguyJS/Graphics/Components/canvas3D/items/primitives/GLPrismFromCurve.js', 'gl-prism-from-curve');
 
 			scripts['fragment-bump'] = new ScriptLoader(root + 'PeguyJS/Graphics/Components/canvas3D/shaders/FragmentShaderBump.js', 'fragment-bump');
 			scripts['fragment-color'] = new ScriptLoader(root + 'PeguyJS/Graphics/Components/canvas3D/shaders/FragmentShaderColor.js', 'fragment-color');

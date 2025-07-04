@@ -36,11 +36,11 @@ function GLQuad($verticesList)
 			vertices.push(vertex.z);
 		}
 
-		var vector1 = {x: verticesList[1].x-verticesList[0].x, y: verticesList[1].y-verticesList[0].y, z: verticesList[1].z-verticesList[0].z};
-		var vector2 = {x: verticesList[3].x-verticesList[0].x, y: verticesList[3].y-verticesList[0].y, z: verticesList[3].z-verticesList[0].z};
-		var normal = Math.normalizeVector(Math.crossProduct(vector1, vector2));
-		var tangentX = Math.normalizeVector(Math.crossProduct({x: 0.0, y: 1.0, z: 0.0}, normal));
-		var tangentY = Math.normalizeVector(Math.crossProduct(normal, tangentX));
+		var vector1 = new Vector([verticesList[1].x-verticesList[0].x, verticesList[1].y-verticesList[0].y, verticesList[1].z-verticesList[0].z]);
+		var vector2 = new Vector([verticesList[3].x-verticesList[0].x, verticesList[3].y-verticesList[0].y, verticesList[3].z-verticesList[0].z]);
+		var normal = Vectors.crossProduct(vector1, vector2).normalize();
+		var tangentX = Vectors.crossProduct(new Vector([0.0, 1.0, 0.0]), normal).normalize();
+		var tangentY = Vectors.crossProduct(normal, tangentX).normalize();
 		
 		glBuffer.setVertices(vertices);
 		
